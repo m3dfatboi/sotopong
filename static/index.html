@@ -1,0 +1,3158 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>SotoPong 🏓</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTEiIGZpbGw9IiNFNTM5MzUiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI4IiBmaWxsPSIjRUY1MzUwIi8+PGxpbmUgeDE9IjEyIiB5MT0iMS41IiB4Mj0iMTIiIHkyPSIyMi41IiBzdHJva2U9IiNDNjI4MjgiIHN0cm9rZS13aWR0aD0iMS4yIiBvcGFjaXR5PSIwLjQ1Ii8+PGxpbmUgeDE9IjEuNSIgeTE9IjEyIiB4Mj0iMjIuNSIgeTI9IjEyIiBzdHJva2U9IiNDNjI4MjgiIHN0cm9rZS13aWR0aD0iMS4yIiBvcGFjaXR5PSIwLjQ1Ii8+PHJlY3QgeD0iMTkiIHk9IjE4LjUiIHdpZHRoPSIxMC41IiBoZWlnaHQ9IjQiIHJ4PSIyIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAyNCAyMSkiIGZpbGw9IiM2RDRDNDEiLz48cmVjdCB4PSIxOS40IiB5PSIxOSIgd2lkdGg9IjkuNyIgaGVpZ2h0PSIzIiByeD0iMS41IiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAyNCAyMSkiIGZpbGw9IiM4RDZFNjMiLz48Y2lyY2xlIGN4PSIyNyIgY3k9IjUiIHI9IjQiIGZpbGw9IiNGRkZERTciIHN0cm9rZT0iI0Y5QTgyNSIgc3Ryb2tlLXdpZHRoPSIxLjIiLz48cGF0aCBkPSJNMjUgMy44IFEyNyAzIDI5IDQuNSIgc3Ryb2tlPSIjRjlBODI1IiBzdHJva2Utd2lkdGg9IjAuOSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTEiIGZpbGw9IiNFNTM5MzUiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI4IiBmaWxsPSIjRUY1MzUwIi8+PGxpbmUgeDE9IjEyIiB5MT0iMS41IiB4Mj0iMTIiIHkyPSIyMi41IiBzdHJva2U9IiNDNjI4MjgiIHN0cm9rZS13aWR0aD0iMS4yIiBvcGFjaXR5PSIwLjQ1Ii8+PGxpbmUgeDE9IjEuNSIgeTE9IjEyIiB4Mj0iMjIuNSIgeTI9IjEyIiBzdHJva2U9IiNDNjI4MjgiIHN0cm9rZS13aWR0aD0iMS4yIiBvcGFjaXR5PSIwLjQ1Ii8+PHJlY3QgeD0iMTkiIHk9IjE4LjUiIHdpZHRoPSIxMC41IiBoZWlnaHQ9IjQiIHJ4PSIyIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAyNCAyMSkiIGZpbGw9IiM2RDRDNDEiLz48cmVjdCB4PSIxOS40IiB5PSIxOSIgd2lkdGg9IjkuNyIgaGVpZ2h0PSIzIiByeD0iMS41IiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAyNCAyMSkiIGZpbGw9IiM4RDZFNjMiLz48Y2lyY2xlIGN4PSIyNyIgY3k9IjUiIHI9IjQiIGZpbGw9IiNGRkZERTciIHN0cm9rZT0iI0Y5QTgyNSIgc3Ryb2tlLXdpZHRoPSIxLjIiLz48cGF0aCBkPSJNMjUgMy44IFEyNyAzIDI5IDQuNSIgc3Ryb2tlPSIjRjlBODI1IiBzdHJva2Utd2lkdGg9IjAuOSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #F2F3F5;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #1A1A1A;
+    }
+
+    @media (min-width: 641px) {
+      .mob {
+        display: none !important;
+      }
+
+      .desk {
+        display: flex !important;
+      }
+
+      .desk-table {
+        display: table !important;
+      }
+
+      .mob-list {
+        display: none !important;
+      }
+
+      .hide-mob {
+        display: block !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .mob {
+        display: flex !important;
+      }
+
+      .desk {
+        display: none !important;
+      }
+
+      .desk-table {
+        display: none !important;
+      }
+
+      .mob-list {
+        display: block !important;
+      }
+
+      .hide-mob {
+        display: none !important;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .two-col {
+        grid-template-columns: 1fr !important;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    .row-hover:hover {
+      background: #FAFBFC;
+    }
+
+    .del-btn:hover {
+      background: #FFEBEE !important;
+      border-color: #C62828 !important;
+      color: #C62828 !important;
+    }
+
+    @media (min-width: 641px) {
+      .desk-flex {
+        display: flex !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .desk-flex {
+        display: none !important;
+      }
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    select option {
+      background: #fff;
+    }
+
+    input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .live-dot {
+      animation: livePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .spinner {
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .modal-bg {
+      animation: fadeIn .18s ease;
+    }
+
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        bottom: 72px
+      }
+
+      to {
+        opacity: 1;
+        bottom: 88px
+      }
+    }
+
+    .toast {
+      animation: toastIn .25s ease;
+    }
+
+    /* Offline banner */
+    .offline-bar {
+      background: #C62828;
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useCallback } = React;
+    const _AC={};let _AV=0;
+    function _setAvatarCache(players){players.forEach(p=>{if(p.avatar_url)_AC[p.name]=p.avatar_url;});_AV=Date.now();window.dispatchEvent(new CustomEvent('ac'));}
+    function buildRatingHistory(players,matches){
+      const cur={};players.forEach(p=>{cur[p.name]=p.rating;});
+      const sorted=[...matches].sort((a,b)=>a.id-b.id);
+      sorted.forEach(m=>{
+        [m.p1,m.p1b].filter(Boolean).forEach(n=>{if(cur[n]!==undefined)cur[n]-=m.d1;});
+        [m.p2,m.p2b].filter(Boolean).forEach(n=>{if(cur[n]!==undefined)cur[n]-=m.d2;});
+      });
+      const hist={};
+      sorted.forEach(m=>{
+        hist[m.id]={};
+        [...[m.p1,m.p1b].filter(Boolean),...[m.p2,m.p2b].filter(Boolean)].forEach(n=>{if(cur[n]!==undefined)hist[m.id][n]=cur[n];});
+        [m.p1,m.p1b].filter(Boolean).forEach(n=>{if(cur[n]!==undefined)cur[n]+=m.d1;});
+        [m.p2,m.p2b].filter(Boolean).forEach(n=>{if(cur[n]!==undefined)cur[n]+=m.d2;});
+      });
+      return hist;
+    }
+
+    // ── API base — автоматически подхватывает адрес сервера ───────────────────
+    const API = window.location.origin;
+
+    async function apiFetch(path, options = {}) {
+      const res = await fetch(API + path, {
+        headers: { "Content-Type": "application/json" },
+        ...options,
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ detail: "Ошибка сервера" }));
+        throw new Error(err.detail || "Ошибка сервера");
+      }
+      return res.json();
+    }
+
+    // ── Constants ─────────────────────────────────────────────────────────────
+    const AVATAR_COLORS = ["#E8822A", "#2E7D32", "#1565C0", "#6A1B9A", "#C62828", "#00838F", "#AD6800", "#006064"];
+
+    function getRank(r) {
+      if (r >= 1300) return { label: "Мастер", color: "#E8822A", bg: "#FEF3E8" };
+      if (r >= 1200) return { label: "Эксперт", color: "#2E7D32", bg: "#E8F5E9" };
+      if (r >= 1100) return { label: "Профи", color: "#1565C0", bg: "#E3F2FD" };
+      if (r >= 1050) return { label: "Опытный", color: "#6A1B9A", bg: "#F3E5F5" };
+      return { label: "Новичок", color: "#78909C", bg: "#ECEFF1" };
+    }
+
+    // ── Normalize match order (alphabetical by player name) ──────────────────
+    function normalizeMatch(raw) {
+      if (!raw) return raw;
+      const p1b=raw.p1b||null,p2b=raw.p2b||null;
+      const m={...raw,p1b,p2b};
+      if (m.p1<=m.p2) return m;
+      return {...m,p1:m.p2,p2:m.p1,s1:m.s2,s2:m.s1,d1:m.d2,d2:m.d1,p1b:m.p2b,p2b:m.p1b};
+    }
+
+
+    function PlayerSelect({value,onChange,players,placeholder}){
+      const [open,setOpen]=React.useState(false);const [ds,setDs]=React.useState({});
+      const tRef=React.useRef(null),dRef=React.useRef(null);
+      const calc=()=>{if(!tRef.current)return;const r=tRef.current.getBoundingClientRect();setDs({position:"fixed",top:r.bottom+4,left:r.left,width:r.width,zIndex:9999});};
+      useEffect(()=>{
+        const onD=e=>{if(!(tRef.current&&tRef.current.contains(e.target))&&!(dRef.current&&dRef.current.contains(e.target)))setOpen(false);};
+        document.addEventListener("mousedown",onD);
+        return()=>{document.removeEventListener("mousedown",onD);};
+      },[]);
+      const toggle=()=>{calc();setOpen(o=>!o);};
+      const sel=players.find(pl=>String(pl.id)===String(value));
+      const drop=open?(<div ref={dRef} style={{...ds,background:"#fff",borderRadius:8,border:"1px solid #E8EAEC",boxShadow:"0 8px 24px rgba(0,0,0,.14)",maxHeight:220,overflowY:"auto"}}>
+          {players.length===0&&<div style={{padding:"12px 14px",color:"#8C9BAB",fontSize:13}}>Нет игроков</div>}
+          {players.map(pl=>(<div key={pl.id} onClick={()=>{onChange(String(pl.id));setOpen(false);}}
+              style={{display:"flex",alignItems:"center",gap:10,padding:"9px 14px",cursor:"pointer",background:String(pl.id)===String(value)?"#FEF3E8":"#fff"}}
+              onMouseEnter={e=>e.currentTarget.style.background="#FAFBFC"}
+              onMouseLeave={e=>e.currentTarget.style.background=String(pl.id)===String(value)?"#FEF3E8":"#fff"}>
+              <Avatar name={pl.name} size={26}/><span style={{fontWeight:600,fontSize:14,flex:1}}>{pl.name}</span><span style={{color:"#8C9BAB",fontSize:12}}>{pl.rating}</span>
+            </div>))}
+        </div>):null;
+      return(<div style={{position:"relative"}}>
+          <div ref={tRef} onClick={toggle} style={{display:"flex",alignItems:"center",gap:10,padding:"0 36px 0 12px",height:42,boxSizing:"border-box",borderRadius:8,border:"1px solid #E8EAEC",background:"#fff",cursor:"pointer",fontSize:14,color:sel?"#1A1A1A":"#8C9BAB",position:"relative",userSelect:"none",overflow:"hidden"}}>
+            {sel?(<><Avatar name={sel.name} size={24}/><span style={{fontWeight:600,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{sel.name}</span><span style={{color:"#8C9BAB",fontSize:12,flexShrink:0}}>{sel.rating} очков</span></>):<span style={{whiteSpace:"nowrap"}}>{placeholder}</span>}
+            <span style={{position:"absolute",right:12,top:"50%",transform:open?"translateY(-50%) rotate(180deg)":"translateY(-50%)",color:"#8C9BAB",fontSize:10,transition:"transform .15s",lineHeight:1,pointerEvents:"none"}}>▼</span>
+          </div>
+          {ReactDOM.createPortal(drop,document.body)}
+        </div>);
+    }
+    function EditableAvatar({name,size=36,playerId,initialUrl,onAvatarUpdate}){
+      const [has,setHas]=React.useState(!!initialUrl);const [ts,setTs]=React.useState(Date.now());const [hover,setHover]=React.useState(false);const ref=React.useRef(null);
+      useEffect(()=>{setHas(!!initialUrl);},[initialUrl]);
+      const onFile=async e=>{const file=e.target.files&&e.target.files[0];if(!file||!playerId)return;
+        try{const fd=new FormData();fd.append("file",file);const r=await fetch("/api/players/"+playerId+"/avatar",{method:"POST",body:fd});
+          if(r.ok){const t=Date.now();setHas(true);setTs(t);_AC[name]="/api/players/"+playerId+"/avatar";_AV=t;window.dispatchEvent(new CustomEvent("ac"));if(onAvatarUpdate)onAvatarUpdate();}}catch(e){}e.target.value="";};
+      const src2=has&&playerId?"/api/players/"+playerId+"/avatar?t="+ts:null;
+      return(<div style={{position:"relative",width:size,height:size,flexShrink:0}} onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} onClick={()=>ref.current&&ref.current.click()} title="Загрузить фото">
+          {src2?<img src={src2} alt={name} style={{width:size,height:size,borderRadius:"50%",objectFit:"cover",display:"block",cursor:"pointer"}}/>:<div style={{cursor:"pointer"}}><Avatar name={name} size={size}/></div>}
+          {hover&&<div style={{position:"absolute",inset:0,borderRadius:"50%",cursor:"pointer",background:"rgba(0,0,0,0.45)",display:"flex",alignItems:"center",justifyContent:"center"}}><svg width={size*.38} height={size*.38} viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></div>}
+          <input ref={ref} type="file" accept="image/*" style={{display:"none"}} onChange={onFile}/>
+        </div>);
+    }
+    function TeamCell({name,name2,isWinner,align,size,ratings}){
+      align=align||"left";size=size||28;
+      const win="#2E7D32",lose="#8C9BAB",isRight=align==="right";
+      const row=n=>{const rating=ratings&&ratings[n];return(
+          <div style={{display:"flex",flexDirection:isRight?"row-reverse":"row",alignItems:"center",gap:8}}>
+            <Avatar name={n} size={size}/>
+            <div style={{display:"flex",flexDirection:"column",gap:1,alignItems:isRight?"flex-end":"flex-start"}}>
+              <span style={{fontWeight:isWinner?700:400,color:isWinner?win:lose,fontSize:14,lineHeight:1.3,whiteSpace:"nowrap"}}>{n}</span>
+              {rating!==undefined&&<span style={{fontSize:11,color:"#8C9BAB"}}>{rating}</span>}
+            </div>
+          </div>);};
+      return <div style={{display:"flex",flexDirection:"column",gap:6,alignItems:isRight?"flex-end":"flex-start"}}>{row(name)}{name2?row(name2):null}</div>;
+    }
+    // ── UI Primitives ──────────────────────────────────────────────────────────
+    function Avatar({ name, size = 36 }) {
+      const [,bump]=React.useState(0);
+      useEffect(()=>{const h=()=>bump(v=>v+1);window.addEventListener("ac",h);return()=>window.removeEventListener("ac",h);},[]);
+      const url=_AC[name];
+      if(url) return <img src={url+"?v="+_AV} alt={name} style={{width:size,height:size,borderRadius:"50%",objectFit:"cover",display:"block",flexShrink:0}} />;
+      const idx=name.charCodeAt(0)%AVATAR_COLORS.length;
+      const initials=name.split(" ").map(w=>w[0]).join("").toUpperCase().slice(0,2);
+      return <div style={{width:size,height:size,borderRadius:"50%",background:AVATAR_COLORS[idx],color:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontSize:size*.38,fontWeight:700,flexShrink:0,userSelect:"none"}}>{initials}</div>;
+    }
+
+    function TrashIcon() {
+      return (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="3 6 5 6 21 6" />
+          <path d="M19 6l-1 14H6L5 6" /><path d="M10 11v6M14 11v6" /><path d="M9 6V4h6v2" />
+        </svg>
+      );
+    }
+
+    function PencilIcon() {
+      return (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+      );
+    }
+
+    function RankPill({ rating }) {
+      const rank = getRank(rating);
+      return (
+        <span style={{
+          fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 20,
+          display: "inline-block", color: rank.color, background: rank.bg
+        }}>
+          {rank.label}
+        </span>
+      );
+    }
+
+    function DeltaBadge({ d, name, right }) {
+      const green = d > 0;
+      return (
+        <span style={{
+          fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", gap: 4,
+          color: green ? "#2E7D32" : "#C62828"
+        }}>
+          {right && <span style={{ color: "#8C9BAB", fontWeight: 400 }}>{name}</span>}
+          <span style={{ padding: "2px 7px", borderRadius: 20, background: green ? "#E8F5E9" : "#FFEBEE" }}>
+            {green ? "+" : ""}{d}
+          </span>
+          {!right && <span style={{ color: "#8C9BAB", fontWeight: 400 }}>{name}</span>}
+        </span>
+      );
+    }
+
+    function StatCard({ label, value, icon, accent }) {
+      return (
+        <div style={{
+          background: accent ? "#E8822A" : "#fff", borderRadius: 12,
+          border: "1px solid #E8EAEC", padding: "14px 18px"
+        }}>
+          <div style={{ fontSize: 18, marginBottom: 6 }}>{icon}</div>
+          <div style={{
+            fontSize: 24, fontWeight: 800, lineHeight: 1,
+            color: accent ? "#fff" : "#1A1A1A"
+          }}>{value}</div>
+          <div style={{
+            fontSize: 11, marginTop: 4,
+            color: accent ? "rgba(255,255,255,.8)" : "#8C9BAB"
+          }}>{label}</div>
+        </div>
+      );
+    }
+
+    // ── Spinner ────────────────────────────────────────────────────────────────
+    function Spinner() {
+      return (
+        <div style={{ display: "flex", justifyContent: "center", padding: 80 }}>
+          <div className="spinner" style={{
+            width: 36, height: 36, borderRadius: "50%",
+            border: "3px solid #E8EAEC", borderTop: "3px solid #E8822A"
+          }} />
+        </div>
+      );
+    }
+
+    // ── Shared styles ──────────────────────────────────────────────────────────
+    const card = { background: "#fff", borderRadius: 12, border: "1px solid #E8EAEC", overflow: "hidden" };
+    const ch = {
+      display: "flex", alignItems: "center", justifyContent: "space-between",
+      padding: "14px 18px", borderBottom: "1px solid #E8EAEC"
+    };
+    const th = {
+      padding: "9px 16px", textAlign: "left", fontSize: 11, fontWeight: 700,
+      color: "#8C9BAB", textTransform: "uppercase", letterSpacing: .6,
+      background: "#FAFBFC", borderBottom: "1px solid #E8EAEC"
+    };
+    const td = { padding: "11px 16px", fontSize: 14, verticalAlign: "middle" };
+    const delBtn = {
+      background: "none", border: "1px solid rgba(198, 40, 40, 0.3)", borderRadius: 6,
+      padding: 0, width: 34, height: 34, cursor: "pointer", color: "#C62828",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      transition: "all .15s", lineHeight: 0, flexShrink: 0
+    };
+    const btnPrimary = {
+      padding: "9px 20px", borderRadius: 8, background: "#E8822A",
+      color: "#fff", border: "none", fontWeight: 700, fontSize: 14, cursor: "pointer"
+    };
+    const btnOutline = {
+      padding: "9px 20px", borderRadius: 8, background: "#fff",
+      color: "#1A1A1A", border: "1px solid #E8EAEC", fontWeight: 600,
+      fontSize: 14, cursor: "pointer"
+    };
+    const btnDanger = {
+      padding: "9px 20px", borderRadius: 8, background: "#C62828",
+      color: "#fff", border: "none", fontWeight: 700, fontSize: 14, cursor: "pointer"
+    };
+    const labelSt = {
+      fontSize: 11, fontWeight: 700, color: "#8C9BAB",
+      textTransform: "uppercase", letterSpacing: .7, marginBottom: 8
+    };
+    const selectSt = {
+      width: "100%", padding: "10px 36px 10px 14px", borderRadius: 8,
+      border: "1px solid #E8EAEC", background: "#fff", color: "#1A1A1A",
+      fontSize: 14, outline: "none", cursor: "pointer", marginBottom: 10
+    };
+
+    // ── ConfirmModal ───────────────────────────────────────────────────────────
+    function ConfirmModal({ text, onConfirm, onCancel, loading }) {
+      React.useEffect(() => {
+        function onKey(e) {
+          if (loading) return;
+          if (e.key === "Enter") { e.preventDefault(); onConfirm(); }
+          if (e.key === "Escape") { e.preventDefault(); onCancel(); }
+        }
+        document.addEventListener("keydown", onKey);
+        return () => document.removeEventListener("keydown", onKey);
+      }, [loading, onConfirm, onCancel]);
+      return (
+        <div className="modal-bg" onClick={e => e.target === e.currentTarget && onCancel()}
+          style={{
+            position: "fixed", inset: 0, background: "rgba(0,0,0,.45)", zIndex: 300,
+            display: "flex", alignItems: "center", justifyContent: "center", padding: 16
+          }}>
+          <div style={{
+            background: "#fff", borderRadius: 16, padding: 28, maxWidth: 380, width: "100%",
+            boxShadow: "0 24px 64px rgba(0,0,0,.22)"
+          }}>
+            <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 10 }}>Подтверждение</div>
+            <div style={{ fontSize: 14, color: "#8C9BAB", lineHeight: 1.55, marginBottom: 24 }}>{text}</div>
+            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
+              <button onClick={onCancel} style={btnOutline} disabled={loading}>Отмена</button>
+              <button autoFocus onClick={onConfirm} style={{ ...btnDanger, opacity: loading ? .5 : 1 }} disabled={loading}>
+                {loading ? "Удаление..." : "Удалить"}
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── NewMatchModal ──────────────────────────────────────────────────────────
+    function NewMatchModal({ players, onClose, onSubmit, savedP1, savedP2, onSavePlayers }) {
+      const [mode, setMode] = useState("1v1");
+      const [p1, setP1] = useState(savedP1 || "");
+      const [p1b, setP1b] = useState("");
+      const [p2, setP2] = useState(savedP2 || "");
+      const [p2b, setP2b] = useState("");
+      const [s1, setS1] = useState("");
+      const [s2, setS2] = useState("");
+      const [busy, setBusy] = useState(false);
+      const [err, setErr] = useState("");
+      const is2v2 = mode === "2v2";
+      const p1obj = players.find(p => p.id === parseInt(p1));
+      const p1bobj = players.find(p => p.id === parseInt(p1b));
+      const p2obj = players.find(p => p.id === parseInt(p2));
+      const p2bobj = players.find(p => p.id === parseInt(p2b));
+      const allIds2v2 = [p1, p1b, p2, p2b].filter(Boolean);
+      const noDupes2v2 = new Set(allIds2v2).size === allIds2v2.length;
+      const valid = is2v2
+        ? p1 && p1b && p2 && p2b && noDupes2v2 && s1 !== "" && s2 !== "" && parseInt(s1) !== parseInt(s2)
+        : p1 && p2 && p1 !== p2 && s1 !== "" && s2 !== "" && parseInt(s1) !== parseInt(s2);
+      async function handleSubmit() {
+        if (!valid || busy) return;
+        setBusy(true); setErr("");
+        try {
+          const payload = {
+            p1_name: p1obj.name,
+            p2_name: p2obj.name,
+            score1: parseInt(s1),
+            score2: parseInt(s2),
+            ...(is2v2 && { p1b_name: p1bobj.name, p2b_name: p2bobj.name }),
+          };
+          await onSubmit(payload);
+          onSavePlayers && onSavePlayers(p1, p2);
+          onClose();
+        } catch (e) { setErr(e.message); }
+        finally { setBusy(false); }
+      }
+      React.useEffect(() => {
+        function onKey(e) {
+          if (e.key === "Escape") { e.preventDefault(); onClose(); }
+          if (e.key === "Enter" && e.target.tagName !== "SELECT") { e.preventDefault(); handleSubmit(); }
+        }
+        document.addEventListener("keydown", onKey);
+        return () => document.removeEventListener("keydown", onKey);
+      }, [valid, busy]);
+      const preview = obj => obj ? (
+        <div style={{
+          display: "flex", alignItems: "center", gap: 12, padding: "10px 14px",
+          background: "#FAFBFC", borderRadius: 8, border: "1px solid #E8EAEC", marginTop: 8
+        }}>
+          <Avatar name={obj.name} size={34} />
+          <div>
+            <div style={{ fontWeight: 600, fontSize: 14 }}>{obj.name}</div>
+            <div style={{ fontSize: 12, color: "#8C9BAB" }}>{obj.rating} очков · {obj.wins}В / {obj.losses}П</div>
+          </div>
+        </div>
+      ) : null;
+      const usedIds = is2v2 ? [p1, p1b, p2, p2b] : [p1, p2];
+      const availFor = (ownVal) => players.filter(p =>
+        p.id === parseInt(ownVal) || !usedIds.filter(id => id !== ownVal).includes(String(p.id))
+      );
+      const teamLabel = (obj1, obj2) => {
+        if (!obj1 && !obj2) return "Команда";
+        if (obj1 && obj2) return `${obj1.name.split(" ")[0]} & ${obj2.name.split(" ")[0]}`;
+        return (obj1 || obj2).name.split(" ")[0];
+      };
+      return (
+        <div className="modal-bg" onClick={e => e.target === e.currentTarget && onClose()}
+          style={{
+            position: "fixed", inset: 0, background: "rgba(0,0,0,.45)", zIndex: 200,
+            display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 16px", overflowY: "auto"
+          }}>
+          <div style={{ background: "#fff", borderRadius: 16, width: "100%", maxWidth: 520, boxShadow: "0 24px 64px rgba(0,0,0,.2)" }}>
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "18px 20px", borderBottom: "1px solid #E8EAEC"
+            }}>
+              <div>
+                <div style={{ fontSize: 16, fontWeight: 700 }}>Новый матч</div>
+                <div style={{ fontSize: 12, color: "#8C9BAB", marginTop: 2 }}>Запишите результат игры</div>
+              </div>
+              <button onClick={onClose} style={{
+                background: "none", border: "none", cursor: "pointer",
+                fontSize: 22, color: "#8C9BAB", lineHeight: 1, padding: "4px 8px"
+              }}>✕</button>
+            </div>
+            <div style={{ padding: "14px 20px", borderBottom: "1px solid #E8EAEC", display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ fontSize: 12, fontWeight: 700, color: "#8C9BAB", textTransform: "uppercase", letterSpacing: .7, marginRight: 4 }}>Формат</span>
+              <div style={{ display: "flex", background: "#F2F3F5", borderRadius: 10, padding: 3, gap: 3 }}>
+                {["1v1", "2v2"].map(m => (
+                  <button key={m} onClick={() => { setMode(m); setP1b(""); setP2b(""); }}
+                    style={{
+                      padding: "6px 20px", borderRadius: 8, border: "none", cursor: "pointer",
+                      fontWeight: 700, fontSize: 14, transition: "all .15s",
+                      background: mode === m ? "#fff" : "transparent",
+                      color: mode === m ? "#E8822A" : "#8C9BAB",
+                      boxShadow: mode === m ? "0 1px 4px rgba(0,0,0,.12)" : "none"
+                    }}>
+                    {m === "1v1" ? "👤 1 на 1" : "👥 2 на 2"}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div style={{ padding: "16px 20px" }}>
+              <div style={labelSt}>{is2v2 ? "Команда 1" : "Игрок 1"}</div>
+              <PlayerSelect value={p1} onChange={id=>setP1(id)} players={availFor(p1)} placeholder="Выбрать игрока..."/>
+              {is2v2 && (<>
+                <div style={{ margin: "10px 0 4px", fontSize: 11, fontWeight: 700, color: "#C8D0DA", textTransform: "uppercase", letterSpacing: .7 }}>+ Партнёр</div>
+                <PlayerSelect value={p1b} onChange={id=>setP1b(id)} players={availFor(p1b)} placeholder="Выбрать партнёра..."/>
+              </>)}
+            </div>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "10px 20px" }}>
+              <span style={{ fontSize: 11, fontWeight: 800, color: "#C8D0DA", letterSpacing: 3 }}>VS</span>
+            </div>
+            <div style={{ padding: "0 20px 16px", borderBottom: "1px solid #E8EAEC" }}>
+              <div style={labelSt}>{is2v2 ? "Команда 2" : "Игрок 2"}</div>
+              <PlayerSelect value={p2} onChange={id=>setP2(id)} players={availFor(p2)} placeholder="Выбрать игрока..."/>
+              {is2v2 && (<>
+                <div style={{ margin: "10px 0 4px", fontSize: 11, fontWeight: 700, color: "#C8D0DA", textTransform: "uppercase", letterSpacing: .7 }}>+ Партнёр</div>
+                <PlayerSelect value={p2b} onChange={id=>setP2b(id)} players={availFor(p2b)} placeholder="Выбрать партнёра..."/>
+              </>)}
+            </div>
+            <div style={{ padding: "16px 20px", borderBottom: "1px solid #E8EAEC" }}>
+              <div style={labelSt}>Счёт</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                {[{ val: s1, set: setS1, obj: p1obj, obj2: is2v2 ? p1bobj : null, label: "Команда 1" },
+                { val: s2, set: setS2, obj: p2obj, obj2: is2v2 ? p2bobj : null, label: "Команда 2" }].map((item, idx) => (
+                  <React.Fragment key={idx}>
+                    {idx === 1 && <div style={{ fontSize: 24, fontWeight: 800, color: "#C8D0DA", paddingTop: 22 }}>:</div>}
+                    <div style={{ flex: 1, textAlign: "center" }}>
+                      <div style={{ fontSize: 11, color: "#8C9BAB", marginBottom: 6, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                        {item.obj ? (is2v2 ? teamLabel(item.obj, item.obj2) : item.obj.name.split(" ")[0]) : item.label}
+                      </div>
+                      <input type="number" min="0" max="99" value={item.val}
+                        onChange={e => item.set(e.target.value)} placeholder="0"
+                        style={{
+                          padding: 12, borderRadius: 8, border: "1px solid #E8EAEC",
+                          fontSize: 32, fontWeight: 800, textAlign: "center", color: "#1A1A1A", outline: "none", width: "100%"
+                        }} />
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+            {err && (
+              <div style={{
+                margin: "0 20px 0", padding: "10px 14px", background: "#FFEBEE",
+                borderRadius: 8, color: "#C62828", fontSize: 13, fontWeight: 500
+              }}>⚠ {err}</div>
+            )}
+            <div style={{ padding: "16px 20px" }}>
+              <button disabled={!valid || busy} onClick={handleSubmit}
+                style={{
+                  width: "100%", padding: 13, borderRadius: 9,
+                  background: valid && !busy ? "#E8822A" : "#E8EAEC",
+                  color: valid && !busy ? "#fff" : "#8C9BAB",
+                  border: "none", fontWeight: 700, fontSize: 15,
+                  cursor: valid && !busy ? "pointer" : "not-allowed", transition: "all .15s"
+                }}>
+                {busy ? "Сохраняем..." : "Записать результат"}
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    // ── Edit Match Modal ───────────────────────────────────────────────────────
+    function EditMatchModal({ match, players, onClose, onSubmit }) {
+      const findId = name => { const p = players.find(x => x.name === name); return p ? String(p.id) : ""; };
+      const is2v2Initial = Boolean(match.p1b);
+      const [mode, setMode] = useState(is2v2Initial ? "2v2" : "1v1");
+      const [p1, setP1] = useState(findId(match.p1));
+      const [p1b, setP1b] = useState(findId(match.p1b));
+      const [p2, setP2] = useState(findId(match.p2));
+      const [p2b, setP2b] = useState(findId(match.p2b));
+      const [s1, setS1] = useState(String(match.s1));
+      const [s2, setS2] = useState(String(match.s2));
+      const [busy, setBusy] = useState(false);
+      const [err, setErr] = useState("");
+      const is2v2 = mode === "2v2";
+      const p1obj = players.find(p => p.id === parseInt(p1));
+      const p1bobj = players.find(p => p.id === parseInt(p1b));
+      const p2obj = players.find(p => p.id === parseInt(p2));
+      const p2bobj = players.find(p => p.id === parseInt(p2b));
+      const allIds2v2 = [p1, p1b, p2, p2b].filter(Boolean);
+      const noDupes2v2 = new Set(allIds2v2).size === allIds2v2.length;
+      const valid = is2v2
+        ? p1 && p1b && p2 && p2b && noDupes2v2 && s1 !== "" && s2 !== "" && parseInt(s1) !== parseInt(s2)
+        : p1 && p2 && p1 !== p2 && s1 !== "" && s2 !== "" && parseInt(s1) !== parseInt(s2);
+      async function handleSubmit() {
+        if (!valid || busy) return;
+        setBusy(true); setErr("");
+        try {
+          const payload = {
+            p1_name: p1obj.name,
+            p2_name: p2obj.name,
+            score1: parseInt(s1),
+            score2: parseInt(s2),
+            ...(is2v2 && { p1b_name: p1bobj.name, p2b_name: p2bobj.name }),
+          };
+          await onSubmit(match.id, payload);
+          onClose();
+        } catch (e) { setErr(e.message); }
+        finally { setBusy(false); }
+      }
+      React.useEffect(() => {
+        function onKey(e) {
+          if (e.key === "Escape") { e.preventDefault(); onClose(); }
+          if (e.key === "Enter" && e.target.tagName !== "SELECT") { e.preventDefault(); handleSubmit(); }
+        }
+        document.addEventListener("keydown", onKey);
+        return () => document.removeEventListener("keydown", onKey);
+      }, [valid, busy]);
+      const usedIds = is2v2 ? [p1, p1b, p2, p2b] : [p1, p2];
+      const availFor = (ownVal) => players.filter(p =>
+        p.id === parseInt(ownVal) || !usedIds.filter(id => id !== ownVal).includes(String(p.id))
+      );
+      const teamLabel = (obj1, obj2) => {
+        if (!obj1 && !obj2) return "Команда";
+        if (obj1 && obj2) return `${obj1.name.split(" ")[0]} & ${obj2.name.split(" ")[0]}`;
+        return (obj1 || obj2).name.split(" ")[0];
+      };
+      return (
+        <div className="modal-bg" onClick={e => e.target === e.currentTarget && onClose()}
+          style={{
+            position: "fixed", inset: 0, background: "rgba(0,0,0,.45)", zIndex: 200,
+            display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 16px", overflowY: "auto"
+          }}>
+          <div style={{ background: "#fff", borderRadius: 16, width: "100%", maxWidth: 520, boxShadow: "0 24px 64px rgba(0,0,0,.2)" }}>
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "18px 20px", borderBottom: "1px solid #E8EAEC"
+            }}>
+              <div>
+                <div style={{ fontSize: 16, fontWeight: 700 }}>Редактировать матч</div>
+                <div style={{ fontSize: 12, color: "#8C9BAB", marginTop: 2 }}>Измените данные и сохраните</div>
+              </div>
+              <button onClick={onClose} style={{
+                background: "none", border: "none", cursor: "pointer",
+                fontSize: 22, color: "#8C9BAB", lineHeight: 1, padding: "4px 8px"
+              }}>✕</button>
+            </div>
+            <div style={{ padding: "14px 20px", borderBottom: "1px solid #E8EAEC", display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ fontSize: 12, fontWeight: 700, color: "#8C9BAB", textTransform: "uppercase", letterSpacing: .7, marginRight: 4 }}>Формат</span>
+              <div style={{ display: "flex", background: "#F2F3F5", borderRadius: 10, padding: 3, gap: 3 }}>
+                {["1v1", "2v2"].map(m => (
+                  <button key={m} onClick={() => { setMode(m); setP1b(""); setP2b(""); }}
+                    style={{
+                      padding: "6px 20px", borderRadius: 8, border: "none", cursor: "pointer",
+                      fontWeight: 700, fontSize: 14, transition: "all .15s",
+                      background: mode === m ? "#fff" : "transparent",
+                      color: mode === m ? "#E8822A" : "#8C9BAB",
+                      boxShadow: mode === m ? "0 1px 4px rgba(0,0,0,.12)" : "none"
+                    }}>
+                    {m === "1v1" ? "👤 1 на 1" : "👥 2 на 2"}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div style={{ padding: "16px 20px" }}>
+              <div style={labelSt}>{is2v2 ? "Команда 1" : "Игрок 1"}</div>
+              <PlayerSelect value={p1} onChange={id=>setP1(id)} players={availFor(p1)} placeholder="Выбрать игрока..."/>
+              {is2v2 && (<>
+                <div style={{ margin: "10px 0 4px", fontSize: 11, fontWeight: 700, color: "#C8D0DA", textTransform: "uppercase", letterSpacing: .7 }}>+ Партнёр</div>
+                <PlayerSelect value={p1b} onChange={id=>setP1b(id)} players={availFor(p1b)} placeholder="Выбрать партнёра..."/>
+              </>)}
+            </div>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "10px 20px" }}>
+              <span style={{ fontSize: 11, fontWeight: 800, color: "#C8D0DA", letterSpacing: 3 }}>VS</span>
+            </div>
+            <div style={{ padding: "0 20px 16px", borderBottom: "1px solid #E8EAEC" }}>
+              <div style={labelSt}>{is2v2 ? "Команда 2" : "Игрок 2"}</div>
+              <PlayerSelect value={p2} onChange={id=>setP2(id)} players={availFor(p2)} placeholder="Выбрать игрока..."/>
+              {is2v2 && (<>
+                <div style={{ margin: "10px 0 4px", fontSize: 11, fontWeight: 700, color: "#C8D0DA", textTransform: "uppercase", letterSpacing: .7 }}>+ Партнёр</div>
+                <PlayerSelect value={p2b} onChange={id=>setP2b(id)} players={availFor(p2b)} placeholder="Выбрать партнёра..."/>
+              </>)}
+            </div>
+            <div style={{ padding: "16px 20px", borderBottom: "1px solid #E8EAEC" }}>
+              <div style={labelSt}>Счёт</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                {[{ val: s1, set: setS1, obj: p1obj, obj2: is2v2 ? p1bobj : null, label: "Команда 1" },
+                { val: s2, set: setS2, obj: p2obj, obj2: is2v2 ? p2bobj : null, label: "Команда 2" }].map((item, idx) => (
+                  <React.Fragment key={idx}>
+                    {idx === 1 && <div style={{ fontSize: 24, fontWeight: 800, color: "#C8D0DA", paddingTop: 22 }}>:</div>}
+                    <div style={{ flex: 1, textAlign: "center" }}>
+                      <div style={{ fontSize: 11, color: "#8C9BAB", marginBottom: 6, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                        {item.obj ? (is2v2 ? teamLabel(item.obj, item.obj2) : item.obj.name.split(" ")[0]) : item.label}
+                      </div>
+                      <input type="number" min="0" max="99" value={item.val}
+                        onChange={e => item.set(e.target.value)} placeholder="0"
+                        style={{
+                          padding: 12, borderRadius: 8, border: "1px solid #E8EAEC",
+                          fontSize: 32, fontWeight: 800, textAlign: "center", color: "#1A1A1A", outline: "none", width: "100%"
+                        }} />
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+            {err && (
+              <div style={{
+                margin: "0 20px 0", padding: "10px 14px", background: "#FFEBEE",
+                borderRadius: 8, color: "#C62828", fontSize: 13, fontWeight: 500
+              }}>⚠ {err}</div>
+            )}
+            <div style={{ padding: "16px 20px" }}>
+              <button disabled={!valid || busy} onClick={handleSubmit}
+                style={{
+                  width: "100%", padding: 13, borderRadius: 9,
+                  background: valid && !busy ? "#E8822A" : "#E8EAEC",
+                  color: valid && !busy ? "#fff" : "#8C9BAB",
+                  border: "none", fontWeight: 700, fontSize: 15,
+                  cursor: valid && !busy ? "pointer" : "not-allowed", transition: "all .15s"
+                }}>
+                {busy ? "Сохраняем..." : "Сохранить изменения"}
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── Leaderboard ────────────────────────────────────────────────────────────
+    function Leaderboard({ players, matches, tournaments }) {
+      if (!players.length) return <Empty text="Нет игроков — добавьте первого во вкладке «Игроки»" />;
+      const listRef = React.useRef(null);
+      const [visibleCount, setVisibleCount] = React.useState(5);
+      useEffect(() => {
+        const CARD_H = 92, HDR_H = 52, BOT = 20;
+        const calc = () => {
+          if (window.innerWidth <= 640) { setVisibleCount(10); return; }
+          if (!listRef.current) return;
+          const top = listRef.current.getBoundingClientRect().top + HDR_H;
+          const avail = window.innerHeight - top - BOT;
+          setVisibleCount(Math.max(1, Math.floor(avail / CARD_H)));
+        };
+        calc();
+        let ro;
+        if (window.ResizeObserver) { ro = new ResizeObserver(calc); ro.observe(document.body); }
+        window.addEventListener("resize", calc);
+        return () => { if (ro) ro.disconnect(); window.removeEventListener("resize", calc); };
+      }, []);
+      const recent = matches.slice(0, visibleCount);
+      const ratingHist = React.useMemo(() => buildRatingHistory(players, matches), [players, matches]);
+
+      return (
+        <div>
+          <div className="stats-grid"
+            style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, marginBottom: 14 }}>
+            <StatCard label="Игроков" value={players.length} icon="👤" />
+            <StatCard label="Матчей" value={matches.length} icon="🏓" />
+            <StatCard label="Лидер" value={players[0].name.split(" ")[0]} icon="🏆" accent />
+            <StatCard label="Рейтинг топ 1" value={players[0].rating} icon="⚡" />
+          </div>
+
+          <div className="two-col"
+            style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 14, alignItems: "start" }}>
+
+            {/* Table */}
+            <div style={card}>
+              <div style={ch}>
+                <span style={{ fontSize: 15, fontWeight: 700 }}>Таблица лидеров</span>
+                <span style={{ fontSize: 13, color: "#8C9BAB" }}>{players.length} игроков</span>
+              </div>
+
+              <table className="desk-table" style={{ width: "100%", borderCollapse: "collapse" }}>
+                <thead>
+                  <tr>{["#", "Игрок", "Рейтинг", "В", "П", "WR%"].map((h, idx) => (
+                    <th key={h} style={{...th, width: idx === 0 ? 40 : undefined}}>{h}</th>
+                  ))}</tr>
+                </thead>
+                <tbody>
+                  {players.map((p, i) => {
+                    const total = p.wins + p.losses;
+                    const wr = total ? Math.round(p.wins / total * 100) : 0;
+                    return (
+                      <tr key={p.id} className="row-hover" style={{ borderBottom: "1px solid #E8EAEC" }}>
+                        <td style={{...td, width: 40}}>
+                          <span style={{ fontWeight: 700, fontSize: i < 3 ? 18 : 13, color: "#8C9BAB" }}>
+                            {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `#${i + 1}`}
+                          </span>
+                        </td>
+                        <td style={td}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                            <Avatar name={p.name} size={32} />
+                            <div>
+                              <div style={{ fontWeight: 600, fontSize: 14 }}>{p.name}</div>
+                              <RankPill rating={p.rating} />
+                            </div>
+                          </div>
+                        </td>
+                        <td style={{ ...td, fontWeight: 800, fontSize: 16, color: "#E8822A" }}>{p.rating}</td>
+                        <td style={{ ...td, color: "#2E7D32", fontWeight: 600 }}>{p.wins}</td>
+                        <td style={{ ...td, color: "#C62828", fontWeight: 600 }}>{p.losses}</td>
+                        <td style={td}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 90 }}>
+                            <div style={{ flex: 1, height: 5, background: "#F0F0F0", borderRadius: 3, overflow: "hidden" }}>
+                              <div style={{
+                                height: "100%", width: wr + "%", borderRadius: 3,
+                                background: wr > 60 ? "#2E7D32" : wr > 40 ? "#E8822A" : "#C62828"
+                              }} />
+                            </div>
+                            <span style={{ fontSize: 12, fontWeight: 600, color: "#8C9BAB", minWidth: 28 }}>{wr}%</span>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+
+              <div className="mob-list">
+                {players.map((p, i) => {
+                  const total = p.wins + p.losses;
+                  const wr = total ? Math.round(p.wins / total * 100) : 0;
+                  return (
+                    <div key={p.id}
+                      style={{
+                        display: "flex", alignItems: "center", gap: 12,
+                        padding: "12px 16px", borderBottom: "1px solid #E8EAEC"
+                      }}>
+                      <span style={{ fontWeight: 700, fontSize: i < 3 ? 20 : 14, minWidth: 30, textAlign: "center" }}>
+                        {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `#${i + 1}`}
+                      </span>
+                      <Avatar name={p.name} size={40} />
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{
+                          fontWeight: 700, fontSize: 15,
+                          whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"
+                        }}>{p.name}</div>
+                        <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4 }}>
+                          <RankPill rating={p.rating} />
+                          <span style={{ fontSize: 11, color: "#8C9BAB" }}>{p.wins}В {p.losses}П</span>
+                        </div>
+                      </div>
+                      <div style={{ textAlign: "right" }}>
+                        <div style={{ fontSize: 20, fontWeight: 800, color: "#E8822A" }}>{p.rating}</div>
+                        <div style={{ fontSize: 11, color: "#8C9BAB" }}>WR {wr}%</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Recent matches */}
+            <div style={card} ref={listRef}>
+              <div style={ch}>
+                <span style={{ fontSize: 15, fontWeight: 700 }}>Последние матчи</span>
+              </div>
+              {recent.length === 0 && (
+                <div style={{ padding: "28px 20px", color: "#8C9BAB", fontSize: 14, textAlign: "center" }}>
+                  Матчей ещё не было
+                </div>
+              )}
+              {recent.map(raw => {
+                const m = normalizeMatch(raw); return (
+                  <div key={m.id} style={{padding:"14px 20px",borderBottom:"1px solid #E8EAEC"}}>
+                    <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+                      <div style={{flex:1}}><TeamCell name={m.p1} name2={m.p1b} isWinner={m.winner===m.p1} size={24} ratings={ratingHist[m.id]||{}}/></div>
+                      <span style={{padding:"4px 12px",background:"#F5F5F5",borderRadius:20,fontWeight:800,fontSize:15,flexShrink:0}}>{m.s1}:{m.s2}</span>
+                      <div style={{flex:1,display:"flex",justifyContent:"flex-end"}}><TeamCell name={m.p2} name2={m.p2b} isWinner={m.winner===m.p2} align="right" size={24} ratings={ratingHist[m.id]||{}}/></div>
+                    </div>
+                    <div style={{display:"flex",alignItems:"center",gap:6}}>
+                      <DeltaBadge d={m.d1}/>
+                      <span style={{flex:1,textAlign:"center",fontSize:11,color:"#8C9BAB"}}>{m.date} · {m.time}</span>
+                      <DeltaBadge d={m.d2} right/>
+                    </div>
+                  </div>
+                );
+              })
+              }
+            </div>
+
+            {/* Recent tournaments */}
+            <div style={card}>
+              <div style={ch}>
+                <span style={{ fontSize: 15, fontWeight: 700 }}>Последние турниры</span>
+              </div>
+              {(() => {
+                const recentTournaments = tournaments.filter(t => t.status === "finished").slice(0, 5);
+                if (recentTournaments.length === 0) {
+                  return (
+                    <div style={{ padding: "28px 20px", color: "#8C9BAB", fontSize: 14, textAlign: "center" }}>
+                      Турниров ещё не было
+                    </div>
+                  );
+                }
+                return recentTournaments.map(t => {
+                  const betEmoji = t.bet_mode === "rating" ? "⭐" : "💰";
+                  const typeLabel = t.bet_mode === "rating" ? "Рейтинг" : "Деньги";
+                  const winnerPlayer = t.players.find(p => p.player_name === t.winner_name);
+                  const prize = winnerPlayer ? (t.prize_mode === "winner_takes_all" ? t.prize_pool : Math.round(t.prize_pool * 0.6)) : 0;
+                  const date = t.finished_at ? new Date(t.finished_at) : new Date(t.created_at);
+                  const dateStr = date.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' });
+                  const timeStr = date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+
+                  return (
+                    <div key={t.id} style={{ padding: "14px 20px", borderBottom: "1px solid #E8EAEC" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                        <span style={{ fontSize: 18 }}>🏆</span>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontWeight: 700, fontSize: 14, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                            {t.name}
+                          </div>
+                          <div style={{ fontSize: 11, color: "#8C9BAB", marginTop: 2 }}>
+                            {typeLabel} · {t.players.length} игроков
+                          </div>
+                        </div>
+                        <div style={{ textAlign: "right" }}>
+                          <div style={{ fontSize: 13, fontWeight: 700, color: "#2E7D32" }}>{t.winner_name}</div>
+                          <div style={{ fontSize: 12, fontWeight: 700, color: "#E8822A" }}>+{prize} {betEmoji}</div>
+                        </div>
+                      </div>
+                      <div style={{ fontSize: 11, color: "#8C9BAB", textAlign: "center" }}>
+                        {dateStr} · {timeStr}
+                      </div>
+                    </div>
+                  );
+                });
+              })()}
+            </div>
+
+          </div>
+        </div>
+      );
+    }
+
+
+    // ── NewPlayerModal ──────────────────────────────────────────────────────────
+    function NewPlayerModal({ onClose, onSubmit }) {
+      const [name, setName] = useState("");
+      const [busy, setBusy] = useState(false);
+      const [err, setErr] = useState("");
+
+      const valid = name.trim().length > 0;
+
+      async function handleSubmit() {
+        if (!valid || busy) return;
+        setBusy(true); setErr("");
+        try {
+          await onSubmit(name.trim());
+          onClose();
+        } catch (e) { setErr(e.message); }
+        finally { setBusy(false); }
+      }
+      React.useEffect(() => {
+        function onKey(e) { if (e.key === "Escape") { e.preventDefault(); onClose(); } }
+        document.addEventListener("keydown", onKey);
+        return () => document.removeEventListener("keydown", onKey);
+      }, []);
+
+      return (
+        <div className="modal-bg" onClick={e => e.target === e.currentTarget && onClose()}
+          style={{
+            position: "fixed", inset: 0, background: "rgba(0,0,0,.45)", zIndex: 200,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "24px 16px", overflowY: "auto"
+          }}>
+          <div style={{
+            background: "#fff", borderRadius: 16, width: "100%", maxWidth: 420,
+            boxShadow: "0 24px 64px rgba(0,0,0,.2)"
+          }}>
+
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "18px 20px", borderBottom: "1px solid #E8EAEC"
+            }}>
+              <div>
+                <div style={{ fontSize: 16, fontWeight: 700 }}>Новый игрок</div>
+                <div style={{ fontSize: 12, color: "#8C9BAB", marginTop: 2 }}>Добавьте участника рейтинга</div>
+              </div>
+              <button onClick={onClose} style={{
+                background: "none", border: "none", cursor: "pointer",
+                fontSize: 22, color: "#8C9BAB", lineHeight: 1, padding: "4px 8px"
+              }}>✕</button>
+            </div>
+
+            <div style={{ padding: "20px 20px", borderBottom: "1px solid #E8EAEC" }}>
+              <div style={labelSt}>Имя игрока</div>
+              <input
+                autoFocus
+                placeholder="Введите имя..."
+                value={name}
+                onChange={e => setName(e.target.value)}
+                onKeyDown={e => e.key === "Enter" && handleSubmit()}
+                style={{
+                  width: "100%", padding: "11px 14px", borderRadius: 8,
+                  border: "1px solid #E8EAEC", fontSize: 15, color: "#1A1A1A",
+                  outline: "none", boxSizing: "border-box"
+                }}
+              />
+            </div>
+
+            {err && (
+              <div style={{
+                margin: "0 20px", marginTop: 12, padding: "10px 14px", background: "#FFEBEE",
+                borderRadius: 8, color: "#C62828", fontSize: 13, fontWeight: 500
+              }}>
+                ⚠ {err}
+              </div>
+            )}
+
+            <div style={{ padding: "16px 20px" }}>
+              <button disabled={!valid || busy} onClick={handleSubmit}
+                style={{
+                  width: "100%", padding: 13, borderRadius: 9,
+                  background: valid && !busy ? "#E8822A" : "#E8EAEC",
+                  color: valid && !busy ? "#fff" : "#8C9BAB",
+                  border: "none", fontWeight: 700, fontSize: 15,
+                  cursor: valid && !busy ? "pointer" : "not-allowed", transition: "all .15s"
+                }}>
+                {busy ? "Добавляем..." : "Добавить игрока"}
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── History ────────────────────────────────────────────────────────────────
+    function History({ matches, players, onDelete, onEdit }) {
+      const [confirmId,setConfirmId]=useState(null);
+      const [delLoading,setDelLoading]=useState(false);
+      const [editMatch,setEditMatch]=useState(null);
+      const ratingHist=React.useMemo(()=>buildRatingHistory(players||[],matches),[players,matches]);
+      const {col1W,col2W,dateColW}=React.useMemo(()=>{
+        const ms=t=>{try{const c=document.createElement("canvas").getContext("2d");c.font="600 14px sans-serif";return c.measureText(t).width;}catch(e){return 70;}};
+        const md=t=>{try{const c=document.createElement("canvas").getContext("2d");c.font="600 13px sans-serif";return c.measureText(t).width;}catch(e){return 70;}};
+        const norm=matches.map(normalizeMatch);
+        const n1=norm.flatMap(m=>[m.p1,m.p1b].filter(Boolean));
+        const n2=norm.flatMap(m=>[m.p2,m.p2b].filter(Boolean));
+        const ds=norm.map(m=>m.date).filter(Boolean);
+        return{col1W:Math.ceil(n1.length?Math.max(...n1.map(ms)):80)+120,
+               col2W:Math.ceil(n2.length?Math.max(...n2.map(ms)):80)+120,
+               dateColW:Math.ceil(ds.length?Math.max(...ds.map(md)):70)+52};
+      },[matches]);
+      if (!matches.length) return <Empty text="Матчей ещё не было. Сыграйте первый!" />;
+
+      async function handleDelete() {
+        setDelLoading(true);
+        await onDelete(confirmId);
+        setConfirmId(null);
+        setDelLoading(false);
+      }
+
+      return (
+        <div style={card}>
+          {confirmId && (
+            <ConfirmModal
+              text="Удалить этот матч? Рейтинг игроков будет откатан."
+              onConfirm={handleDelete}
+              onCancel={() => setConfirmId(null)}
+              loading={delLoading}
+            />
+          )}
+          {editMatch && (
+            <EditMatchModal
+              match={editMatch}
+              players={players}
+              onClose={() => setEditMatch(null)}
+              onSubmit={onEdit}
+            />
+          )}
+          <div style={ch}>
+            <span style={{ fontSize: 15, fontWeight: 700 }}>История матчей</span>
+            <span style={{ fontSize: 13, color: "#8C9BAB" }}>{matches.length} матчей</span>
+          </div>
+
+          <table className="desk-table" style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th style={{...th,width:dateColW}}>Дата</th>
+                <th style={{...th,width:col1W}}>Игрок 1</th>
+                <th style={{...th,textAlign:"center"}}>Счёт</th>
+                <th style={{...th,width:col2W}}>Игрок 2</th>
+                <th style={{...th,width:1}}></th>
+              </tr>
+            </thead>
+            <tbody>
+              {matches.map(raw => {
+                const m = normalizeMatch(raw); return (
+                  <tr key={m.id} className="row-hover" style={{ borderBottom: "1px solid #E8EAEC" }}>
+                    <td style={{...td,width:dateColW}}>
+                      <div style={{display:"flex",flexDirection:"column",gap:1}}>
+                        <span style={{fontSize:13,fontWeight:600,lineHeight:1.3}}>{m.date}</span>
+                        <span style={{fontSize:11,color:"#8C9BAB"}}>{m.time}</span>
+                      </div>
+                    </td>
+                    <td style={{...td,width:col1W}}>
+                      <div style={{display:"flex",alignItems:"center",gap:10}}>
+                        <TeamCell name={m.p1} name2={m.p1b} isWinner={m.winner===m.p1} size={28} ratings={ratingHist[m.id]||{}}/>
+                        <DeltaBadge d={m.d1}/>
+                      </div>
+                    </td>
+                    <td style={{ ...td, textAlign: "center" }}>
+                      <span style={{
+                        display: "inline-block", padding: "3px 14px",
+                        background: "#F5F5F5", borderRadius: 20, fontWeight: 800, fontSize: 14
+                      }}>
+                        {m.s1}:{m.s2}
+                      </span>
+                    </td>
+                    <td style={{...td,width:col2W}}>
+                      <div style={{display:"flex",alignItems:"center",gap:10}}>
+                        <TeamCell name={m.p2} name2={m.p2b} isWinner={m.winner===m.p2} size={28} ratings={ratingHist[m.id]||{}}/>
+                        <DeltaBadge d={m.d2}/>
+                      </div>
+                    </td>
+
+                    <td style={{...td,textAlign:"right",width:1,whiteSpace:"nowrap"}}>
+                      <div style={{display:"flex",gap:6,justifyContent:"flex-end"}}>
+                        <button className="del-btn" onClick={()=>setEditMatch(raw)} style={delBtn} title="Редактировать матч"><PencilIcon/></button>
+                        <button className="del-btn" onClick={()=>setConfirmId(m.id)} style={delBtn} title="Удалить матч"><TrashIcon/></button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+
+          <div className="mob-list">
+            {matches.map(raw => {
+              const m = normalizeMatch(raw); return (
+                <div key={m.id} onClick={()=>setConfirmId(m.id)}
+                  style={{padding:"14px 16px",borderBottom:"1px solid #E8EAEC",cursor:"pointer"}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+                    <div style={{flex:1}}><TeamCell name={m.p1} name2={m.p1b} isWinner={m.winner===m.p1} size={26} ratings={ratingHist[m.id]||{}}/></div>
+                    <span style={{padding:"4px 12px",background:"#F5F5F5",borderRadius:20,fontWeight:800,fontSize:15,flexShrink:0}}>{m.s1}:{m.s2}</span>
+                    <div style={{flex:1,display:"flex",justifyContent:"flex-end"}}><TeamCell name={m.p2} name2={m.p2b} isWinner={m.winner===m.p2} align="right" size={26} ratings={ratingHist[m.id]||{}}/></div>
+                  </div>
+                  <div style={{display:"flex",alignItems:"center",gap:6}}>
+                    <DeltaBadge d={m.d1}/>
+                    <span style={{flex:1,textAlign:"center",fontSize:11,color:"#8C9BAB"}}>{m.date} · {m.time}</span>
+                    <DeltaBadge d={m.d2} right/>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
+
+    // ── Players Page ───────────────────────────────────────────────────────────
+    function PlayersPage({ players, onDelete, onOpenAdd, onAvatarUpdate }) {
+      const [confirmId, setConfirmId] = useState(null);
+      const [delLoading, setDelLoading] = useState(false);
+      async function handleDelete() {
+        setDelLoading(true); await onDelete(confirmId);
+        setConfirmId(null); setDelLoading(false);
+      }
+
+      if (players.length === 0) {
+        return (
+          <div>
+            {confirmId && <ConfirmModal
+              text="Удалить игрока? Все его матчи и изменения рейтинга соперников тоже будут откатаны."
+              onConfirm={handleDelete} onCancel={() => setConfirmId(null)} loading={delLoading} />}
+            <div style={{ ...card, padding:"60px 20px", textAlign:"center" }}>
+              <div style={{ fontSize:52 }}>👤</div>
+              <div style={{ fontSize:15, color:"#8C9BAB", marginTop:12, lineHeight:1.6 }}>Нет игроков.<br/>Добавь первого участника рейтинга!</div>
+              <button onClick={onOpenAdd} style={{ ...btnPrimary, marginTop:20, padding:"10px 28px", fontSize:14, fontWeight:700 }}>Добавить игрока +</button>
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <div>
+          {confirmId && <ConfirmModal
+            text="Удалить игрока? Все его матчи и изменения рейтинга соперников тоже будут откатаны."
+            onConfirm={handleDelete} onCancel={() => setConfirmId(null)} loading={delLoading} />}
+
+          {/* Desktop */}
+          <div className="hide-mob" style={card}>
+            <div style={ch}>
+              <span style={{ fontSize: 15, fontWeight: 700 }}>Все игроки</span>
+              <span style={{ fontSize: 13, color: "#8C9BAB" }}>{players.length} человек</span>
+            </div>
+            {players.map((p, i) => {
+              const total = p.wins + p.losses, wr = total ? Math.round(p.wins / total * 100) : 0;
+              return (
+                <div key={p.id} className="row-hover desk-flex"
+                  style={{ alignItems: "center", gap: 12, padding: "12px 16px", borderBottom: "1px solid #E8EAEC" }}>
+                  <span style={{ fontWeight: 700, fontSize: i < 3 ? 18 : 13, color: "#8C9BAB", minWidth: 26, textAlign: "center" }}>
+                    {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `#${i + 1}`}
+                  </span>
+                  <EditableAvatar name={p.name} size={36} playerId={p.id} initialUrl={p.avatar_url} onAvatarUpdate={onAvatarUpdate}/>
+                  <div style={{ flex: 1, minWidth: 80 }}>
+                    <div style={{ fontWeight: 700, fontSize: 14 }}>{p.name}</div>
+                    <RankPill rating={p.rating} />
+                  </div>
+                  <div style={{ textAlign: "center", minWidth: 52 }}>
+                    <div style={{ fontSize: 18, fontWeight: 800, color: "#E8822A" }}>{p.rating}</div>
+                    <div style={{ fontSize: 10, color: "#8C9BAB", textTransform: "uppercase" }}>рейтинг</div>
+                  </div>
+                  <div style={{ textAlign: "center", minWidth: 44 }}>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "#2E7D32" }}>{p.wins}</div>
+                    <div style={{ fontSize: 10, color: "#8C9BAB", textTransform: "uppercase" }}>побед</div>
+                  </div>
+                  <div style={{ textAlign: "center", minWidth: 52 }}>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "#C62828" }}>{p.losses}</div>
+                    <div style={{ fontSize: 10, color: "#8C9BAB", textTransform: "uppercase" }}>пораж.</div>
+                  </div>
+                  <div style={{ textAlign: "center", minWidth: 44 }}>
+                    <div style={{ fontSize: 15, fontWeight: 700 }}>{wr}%</div>
+                    <div style={{ fontSize: 10, color: "#8C9BAB", textTransform: "uppercase" }}>WR</div>
+                  </div>
+                  <button className="del-btn" onClick={() => setConfirmId(p.id)} style={delBtn} title="Удалить"><TrashIcon /></button>
+                </div>
+              );
+            })}
+            <div style={{ padding:"12px 16px" }}>
+              <button onClick={onOpenAdd}
+                style={{ ...btnOutline, width:"100%", padding:"9px 0", fontSize:14, fontWeight:600, borderRadius:8, display:"flex", alignItems:"center", justifyContent:"center", gap:6 }}>
+                Добавить игрока +
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile cards */}
+          <div className="mob-list">
+            <div style={{ display: "grid", gap: 10 }}>
+              {players.map((p, i) => {
+                const total = p.wins + p.losses, wr = total ? Math.round(p.wins / total * 100) : 0;
+                return (
+                  <div key={p.id} style={{
+                    background: "#fff", borderRadius: 14, border: "1px solid #E8EAEC",
+                    padding: "14px 16px", boxShadow: "0 2px 8px rgba(0,0,0,.05)"
+                  }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
+                      <span style={{ fontSize: i < 3 ? 22 : 14, fontWeight: 700, color: "#8C9BAB", minWidth: 30, textAlign: "center" }}>
+                        {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `#${i + 1}`}
+                      </span>
+                      <EditableAvatar name={p.name} size={42} playerId={p.id} initialUrl={p.avatar_url} onAvatarUpdate={onAvatarUpdate}/>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontWeight: 700, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{p.name}</div>
+                        <div style={{ marginTop: 4 }}><RankPill rating={p.rating} /></div>
+                      </div>
+                      <button className="del-btn" onClick={() => setConfirmId(p.id)} style={delBtn}><TrashIcon /></button>
+                    </div>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 7 }}>
+                      {[{ v: p.rating, l: "Рейтинг", bg: "#FEF3E8", c: "#E8822A", w: 800 },
+                      { v: p.wins, l: "Побед", bg: "#E8F5E9", c: "#2E7D32", w: 700 },
+                      { v: p.losses, l: "Пораж.", bg: "#FFEBEE", c: "#C62828", w: 700 },
+                      { v: wr + "%", l: "WR", bg: "#F5F5F5", c: wr >= 60 ? "#2E7D32" : wr >= 40 ? "#E8822A" : "#C62828", w: 700 }
+                      ].map(s => (
+                        <div key={s.l} style={{ textAlign: "center", padding: "9px 4px", background: s.bg, borderRadius: 10 }}>
+                          <div style={{ fontSize: 17, fontWeight: s.w, color: s.c, lineHeight: 1 }}>{s.v}</div>
+                          <div style={{ fontSize: 9, color: "#8C9BAB", textTransform: "uppercase", letterSpacing: .4, marginTop: 3 }}>{s.l}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+              <button onClick={onOpenAdd}
+                style={{ ...btnOutline, width:"100%", padding:"14px 0", fontSize:14, fontWeight:600, borderRadius:14, display:"flex", alignItems:"center", justifyContent:"center", gap:6, boxShadow:"0 2px 8px rgba(0,0,0,.05)" }}>
+                Добавить игрока +
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    // ── Compare Page ────────────────────────────────────────────────────────────
+    
+      // ── Tournament ─────────────────────────────────────────────────────────
+      function NewTournamentModal({ onClose, onSubmit }) {
+        const [name, setName] = useState("");
+        const [prizeMode, setPrizeMode] = useState("winner_takes_all");
+        const [betMode, setBetMode] = useState("money");
+        const [busy, setBusy] = useState(false);
+        const [err, setErr] = useState("");
+        const valid = name.trim().length > 0;
+        async function handleSubmit() {
+          if (!valid || busy) return;
+          setBusy(true); setErr("");
+          try { await onSubmit(name.trim(), prizeMode, betMode); onClose(); }
+          catch (e) { setErr(e.message); }
+          finally { setBusy(false); }
+        }
+        React.useEffect(() => {
+          function onKey(e) { if (e.key === "Escape") { e.preventDefault(); onClose(); } }
+          document.addEventListener("keydown", onKey);
+          return () => document.removeEventListener("keydown", onKey);
+        }, []);
+        return (
+          <div className="modal-bg" onClick={e => e.target === e.currentTarget && onClose()}
+            style={{ position:"fixed",inset:0,background:"rgba(0,0,0,.45)",zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:"24px 16px" }}>
+            <div style={{ background:"#fff",borderRadius:16,width:"100%",maxWidth:420,boxShadow:"0 24px 64px rgba(0,0,0,.2)" }}>
+              <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"18px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div>
+                  <div style={{ fontSize:16,fontWeight:700 }}>Новый турнир</div>
+                  <div style={{ fontSize:12,color:"#8C9BAB",marginTop:2 }}>Настройте параметры перед стартом</div>
+                </div>
+                <button onClick={onClose} style={{ background:"none",border:"none",cursor:"pointer",fontSize:22,color:"#8C9BAB",lineHeight:1,padding:"4px 8px" }}>×</button>
+              </div>
+              <div style={{ padding:"14px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div style={labelSt}>Формат</div>
+                <div style={{ display:"flex",background:"#F2F3F5",borderRadius:10,padding:3,gap:3 }}>
+                  {["money","rating"].map(m => (
+                    <button key={m} onClick={() => setBetMode(m)}
+                      style={{ flex:1,padding:"6px 0",borderRadius:8,border:"none",cursor:"pointer",fontWeight:700,fontSize:13,
+                        background:betMode===m?"#fff":"transparent",
+                        color:betMode===m?"#E8822A":"#8C9BAB",
+                        boxShadow:betMode===m?"0 1px 4px rgba(0,0,0,.12)":"none",
+                        transition:"all .15s" }}>
+                      {m==="money" ? "💰 Деньги" : "⭐ Рейтинг"}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div style={{ padding:"20px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div style={labelSt}>Название турнира</div>
+                <input autoFocus placeholder="Например: Пятничный турнир" value={name}
+                  onChange={e => setName(e.target.value)}
+                  onKeyDown={e => e.key === "Enter" && handleSubmit()}
+                  style={{ width:"100%",padding:"11px 14px",borderRadius:8,border:"1px solid #E8EAEC",fontSize:15,color:"#1A1A1A",outline:"none",boxSizing:"border-box" }} />
+              </div>
+              <div style={{ padding:"16px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div style={labelSt}>Распределение призов</div>
+                <select value={prizeMode} onChange={e => setPrizeMode(e.target.value)}
+                  style={{ width:"100%",padding:"11px 14px",borderRadius:8,border:"1px solid #E8EAEC",fontSize:14,color:"#1A1A1A",background:"#fff",outline:"none",boxSizing:"border-box" }}>
+                  <option value="winner_takes_all">🥇 Победитель забирает всё</option>
+                  <option value="top3_split">🏅 Раздел 1–3 места</option>
+                </select>
+                {prizeMode === "top3_split" && (
+                  <div style={{ marginTop:8,padding:"8px 12px",background:"#F8F9FA",borderRadius:8,fontSize:12,color:"#5A6474",lineHeight:1.7 }}>
+                    1-е место: 60% банка · 2-е: 25% · 3-е: 15%
+                  </div>
+                )}
+              </div>
+              {err && <div style={{ margin:"0 20px",marginTop:12,padding:"10px 14px",background:"#FFEBEE",borderRadius:8,color:"#C62828",fontSize:13 }}>{err}</div>}
+              <div style={{ padding:"16px 20px" }}>
+                <button disabled={!valid || busy} onClick={handleSubmit}
+                  style={{ ...btnPrimary,width:"100%",padding:13,borderRadius:9,fontSize:15,opacity:(!valid||busy)?0.5:1,cursor:(!valid||busy)?"not-allowed":"pointer" }}>
+                  {busy ? "⏳ Создаём…" : "Создать турнир"}
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      function EditTournamentModal({ tournament, onClose, onSubmit }) {
+        const [name, setName] = useState(tournament.name);
+        const [prizeMode, setPrizeMode] = useState(tournament.prize_mode);
+        const [betMode, setBetMode] = useState(tournament.bet_mode);
+        const [busy, setBusy] = useState(false);
+        const [err, setErr] = useState("");
+        const valid = name.trim().length > 0;
+        async function handleSubmit() {
+          if (!valid || busy) return;
+          setBusy(true); setErr("");
+          try { await onSubmit(name.trim(), prizeMode, betMode); onClose(); }
+          catch (e) { setErr(e.message); }
+          finally { setBusy(false); }
+        }
+        React.useEffect(() => {
+          function onKey(e) { if (e.key === "Escape") { e.preventDefault(); onClose(); } }
+          document.addEventListener("keydown", onKey);
+          return () => document.removeEventListener("keydown", onKey);
+        }, []);
+        return (
+          <div className="modal-bg" onClick={e => e.target === e.currentTarget && onClose()}
+            style={{ position:"fixed",inset:0,background:"rgba(0,0,0,.45)",zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:"24px 16px" }}>
+            <div style={{ background:"#fff",borderRadius:16,width:"100%",maxWidth:420,boxShadow:"0 24px 64px rgba(0,0,0,.2)" }}>
+              <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"18px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div>
+                  <div style={{ fontSize:16,fontWeight:700 }}>Редактировать турнир</div>
+                  <div style={{ fontSize:12,color:"#8C9BAB",marginTop:2 }}>Измените параметры турнира</div>
+                </div>
+                <button onClick={onClose} style={{ background:"none",border:"none",cursor:"pointer",fontSize:22,color:"#8C9BAB",lineHeight:1,padding:"4px 8px" }}>×</button>
+              </div>
+              <div style={{ padding:"14px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div style={labelSt}>Формат</div>
+                <div style={{ display:"flex",background:"#F2F3F5",borderRadius:10,padding:3,gap:3 }}>
+                  {["money","rating"].map(m => (
+                    <button key={m} onClick={() => setBetMode(m)}
+                      style={{ flex:1,padding:"6px 0",borderRadius:8,border:"none",cursor:"pointer",fontWeight:700,fontSize:13,
+                        background:betMode===m?"#fff":"transparent",
+                        color:betMode===m?"#E8822A":"#8C9BAB",
+                        boxShadow:betMode===m?"0 1px 4px rgba(0,0,0,.12)":"none",
+                        transition:"all .15s" }}>
+                      {m==="money" ? "💰 Деньги" : "⭐ Рейтинг"}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div style={{ padding:"20px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div style={labelSt}>Название турнира</div>
+                <input autoFocus placeholder="Например: Пятничный турнир" value={name}
+                  onChange={e => setName(e.target.value)}
+                  onKeyDown={e => e.key === "Enter" && handleSubmit()}
+                  style={{ width:"100%",padding:"11px 14px",borderRadius:8,border:"1px solid #E8EAEC",fontSize:15,color:"#1A1A1A",outline:"none",boxSizing:"border-box" }} />
+              </div>
+              <div style={{ padding:"16px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div style={labelSt}>Распределение призов</div>
+                <select value={prizeMode} onChange={e => setPrizeMode(e.target.value)}
+                  style={{ width:"100%",padding:"11px 14px",borderRadius:8,border:"1px solid #E8EAEC",fontSize:14,color:"#1A1A1A",background:"#fff",outline:"none",boxSizing:"border-box" }}>
+                  <option value="winner_takes_all">🥇 Победитель забирает всё</option>
+                  <option value="top3_split">🏅 Раздел 1–3 места</option>
+                </select>
+                {prizeMode === "top3_split" && (
+                  <div style={{ marginTop:8,padding:"8px 12px",background:"#F8F9FA",borderRadius:8,fontSize:12,color:"#5A6474",lineHeight:1.7 }}>
+                    1-е место: 60% банка · 2-е: 25% · 3-е: 15%
+                  </div>
+                )}
+              </div>
+              {err && <div style={{ margin:"0 20px",marginTop:12,padding:"10px 14px",background:"#FFEBEE",borderRadius:8,color:"#C62828",fontSize:13 }}>{err}</div>}
+              <div style={{ padding:"16px 20px" }}>
+                <button disabled={!valid || busy} onClick={handleSubmit}
+                  style={{ ...btnPrimary,width:"100%",padding:13,borderRadius:9,fontSize:15,opacity:(!valid||busy)?0.5:1,cursor:(!valid||busy)?"not-allowed":"pointer" }}>
+                  {busy ? "⏳ Сохраняем…" : "Сохранить изменения"}
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      let _lastBet = "";
+      function AddTournamentPlayerModal({ players, existingNames, betMode, onClose, onSubmit }) {
+        const [selIds, setSelIds] = useState([]);
+        const [bet, setBet] = useState(_lastBet);
+        const [busy, setBusy] = useState(false);
+        const [err, setErr] = useState("");
+        const available = players.filter(p => !existingNames.includes(p.name));
+        const valid = selIds.length > 0 && (betMode === "rating" || (bet !== "" && parseInt(bet) >= 0));
+
+        function togglePlayer(id) {
+          setSelIds(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]);
+        }
+
+        async function handleSubmit() {
+          if (!valid || busy) return;
+          setBusy(true); setErr("");
+          try {
+            if (betMode !== "rating") _lastBet = bet;
+            for (const id of selIds) {
+              const p = available.find(p => String(p.id) === String(id));
+              if (p) await onSubmit(p.name, betMode === "rating" ? 0 : parseInt(bet));
+            }
+            onClose();
+          }
+          catch (e) { setErr(e.message); }
+          finally { setBusy(false); }
+        }
+        React.useEffect(() => {
+          function onKey(e) { if (e.key === "Escape") { e.preventDefault(); onClose(); } }
+          document.addEventListener("keydown", onKey);
+          return () => document.removeEventListener("keydown", onKey);
+        }, []);
+
+        return (
+          <div className="modal-bg" onClick={e => e.target === e.currentTarget && onClose()}
+            style={{ position:"fixed",inset:0,background:"rgba(0,0,0,.45)",zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:"24px 16px" }}>
+            <div style={{ background:"#fff",borderRadius:16,width:"100%",maxWidth:420,boxShadow:"0 24px 64px rgba(0,0,0,.2)" }}>
+              <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"18px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div>
+                  <div style={{ fontSize:16,fontWeight:700 }}>Добавить игроков</div>
+                  <div style={{ fontSize:12,color:"#8C9BAB",marginTop:3 }}>Выберите участников из общего списка и добавьте их в турнир</div>
+                </div>
+                <button onClick={onClose} style={{ background:"none",border:"none",cursor:"pointer",fontSize:22,color:"#8C9BAB",lineHeight:1,padding:"4px 8px" }}>×</button>
+              </div>
+              <div style={{ padding:"16px 20px 8px" }}>
+                <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:6 }}>
+                  <div style={labelSt}>Игроки {selIds.length > 0 && <span style={{ color:"#E8822A",fontWeight:700 }}>({selIds.length} выбрано)</span>}</div>
+                  {available.length > 0 && (
+                    <button onClick={() => selIds.length === available.length ? setSelIds([]) : setSelIds(available.map(p => String(p.id)))}
+                      style={{ fontSize:12,fontWeight:600,color:selIds.length===available.length?"#C62828":"#E8822A",background:"none",border:"none",cursor:"pointer",padding:"2px 4px" }}>
+                      {selIds.length === available.length ? "Снять всех" : "Выбрать всех"}
+                    </button>
+                  )}
+                </div>
+                {available.length === 0
+                  ? <div style={{ fontSize:13,color:"#8C9BAB",padding:"8px 0" }}>Все игроки уже в турнире</div>
+                  : (
+                    <div style={{ maxHeight:220,overflowY:"auto",border:"1px solid #E8EAEC",borderRadius:8,background:"#fff" }}>
+                      {available.map(p => {
+                        const sel = selIds.includes(String(p.id));
+                        return (
+                          <div key={p.id} onClick={() => togglePlayer(String(p.id))}
+                            style={{ display:"flex",alignItems:"center",gap:10,padding:"10px 14px",cursor:"pointer",
+                              background:sel?"#FEF3E8":"#fff",borderBottom:"1px solid #F0F2F4",
+                              transition:"background .12s" }}>
+                            <div style={{ width:18,height:18,borderRadius:4,border:`2px solid ${sel?"#E8822A":"#C8D0DA"}`,
+                              background:sel?"#E8822A":"#fff",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>
+                              {sel && <span style={{ color:"#fff",fontSize:11,fontWeight:700,lineHeight:1 }}>✓</span>}
+                            </div>
+                            <Avatar name={p.name} size={28}/>
+                            <div style={{ flex:1,minWidth:0 }}>
+                              <div style={{ fontWeight:600,fontSize:14 }}>{p.name}</div>
+                              <div style={{ fontSize:11,color:"#8C9BAB" }}>{p.rating} очков</div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )
+                }
+              </div>
+              {betMode !== "rating" && <div style={{ padding:"8px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div style={labelSt}>Ставка для каждого 💰</div>
+                <input type="number" min="0" placeholder="0" value={bet}
+                  onChange={e => setBet(e.target.value)}
+                  onKeyDown={e => e.key === "Enter" && handleSubmit()}
+                  style={{ width:"100%",padding:"11px 14px",borderRadius:8,border:"1px solid #E8EAEC",fontSize:28,fontWeight:800,textAlign:"center",color:"#1A1A1A",outline:"none",boxSizing:"border-box" }} />
+              </div>}
+              {err && <div style={{ margin:"0 20px",marginTop:12,padding:"10px 14px",background:"#FFEBEE",borderRadius:8,color:"#C62828",fontSize:13 }}>{err}</div>}
+              <div style={{ padding:"16px 20px" }}>
+                <button disabled={!valid || busy} onClick={handleSubmit}
+                  style={{ ...btnPrimary,width:"100%",padding:13,borderRadius:9,fontSize:15,opacity:(!valid||busy)?0.5:1,cursor:(!valid||busy)?"not-allowed":"pointer" }}>
+                  {busy ? "⏳…" : `Добавить ${selIds.length > 1 ? selIds.length + " игроков" : "игрока"}`}
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      function DeclareWinnerModal({ tournament, onClose, onSubmit }) {
+        const [winner, setWinner] = useState("");
+        const [busy, setBusy] = useState(false);
+        const [err, setErr] = useState("");
+        const betEmoji = tournament.bet_mode === "rating" ? "⭐" : "💰";
+        async function handleSubmit() {
+          if (!winner || busy) return;
+          setBusy(true); setErr("");
+          try { await onSubmit(winner); onClose(); }
+          catch (e) { setErr(e.message); }
+          finally { setBusy(false); }
+        }
+        React.useEffect(() => {
+          function onKey(e) {
+            if (e.key === "Escape") { e.preventDefault(); onClose(); }
+            if (e.key === "Enter") { e.preventDefault(); handleSubmit(); }
+          }
+          document.addEventListener("keydown", onKey);
+          return () => document.removeEventListener("keydown", onKey);
+        }, [winner, busy]);
+        return (
+          <div className="modal-bg" onClick={e => e.target === e.currentTarget && onClose()}
+            style={{ position:"fixed",inset:0,background:"rgba(0,0,0,.45)",zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:"24px 16px" }}>
+            <div style={{ background:"#fff",borderRadius:16,width:"100%",maxWidth:420,boxShadow:"0 24px 64px rgba(0,0,0,.2)" }}>
+              <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"18px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                <div>
+                  <div style={{ fontSize:16,fontWeight:700 }}>🏆 Объявить победителя</div>
+                  <div style={{ fontSize:12,color:"#8C9BAB",marginTop:2 }}>Банк турнира: {tournament.prize_pool} {betEmoji}</div>
+                </div>
+                <button onClick={onClose} style={{ background:"none",border:"none",cursor:"pointer",fontSize:22,color:"#8C9BAB",lineHeight:1,padding:"4px 8px" }}>×</button>
+              </div>
+              <div style={{ padding:"16px 20px",borderBottom:"1px solid #E8EAEC" }}>
+                {tournament.players.map(p => (
+                  <div key={p.id} onClick={() => setWinner(p.player_name)}
+                    style={{ display:"flex",alignItems:"center",gap:12,padding:"10px 14px",borderRadius:10,border:"2px solid",borderColor:winner===p.player_name?"#E8822A":"#E8EAEC",background:winner===p.player_name?"#FEF3E8":"#fff",cursor:"pointer",marginBottom:8,transition:"all .15s" }}>
+                    <Avatar name={p.player_name} size={36} />
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontWeight:700,fontSize:14 }}>{p.player_name}</div>
+                      <div style={{ fontSize:12,color:"#8C9BAB" }}>Ставка: {p.bet} {betEmoji}</div>
+                    </div>
+                    {winner === p.player_name && <span style={{ fontSize:20 }}>🏆</span>}
+                  </div>
+                ))}
+              </div>
+              {err && <div style={{ margin:"0 20px",marginTop:12,padding:"10px 14px",background:"#FFEBEE",borderRadius:8,color:"#C62828",fontSize:13 }}>{err}</div>}
+              <div style={{ padding:"16px 20px" }}>
+                <button disabled={!winner || busy} onClick={handleSubmit}
+                  style={{ ...btnPrimary,width:"100%",padding:13,borderRadius:9,fontSize:15,background:"#2E7D32",opacity:(!winner||busy)?0.5:1,cursor:(!winner||busy)?"not-allowed":"pointer" }}>
+                  {busy ? "⏳…" : "🏆 Объявить победителя"}
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      function TournamentCard({ tournament, players, onReload, onDelete, isOpen, onToggle, autoShowAdd, onAutoShowAddDone }) {
+        const [showAdd, setShowAdd] = useState(!!(autoShowAdd && tournament.status === "active"));
+        const [showEdit, setShowEdit] = useState(false);
+        const [confirmRemove, setConfirmRemove] = useState(null);
+        const [busy, setBusy] = useState(false);
+        const [bracketTab, setBracketTab] = useState("bracket");
+        const [bracket, setBracketRaw] = useState(null);
+        const [bracketLoaded, setBracketLoaded] = useState(false);
+        const [finishBusy, setFinishBusy] = useState(false);
+        const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+        const saveTimer = React.useRef(null);
+        const tournamentId = tournament.id;
+
+        const isActive = tournament.status === "active";
+
+        const collapsed = !isOpen;
+        const [thirdPlaceMatch, setThirdPlaceMatch] = useState(null);
+
+        // Notify parent that autoShowAdd was handled
+        React.useEffect(() => {
+          if (autoShowAdd && isActive && onAutoShowAddDone) onAutoShowAddDone();
+        }, []);
+        const prizePool = tournament.prize_pool;
+        const prizeMode = tournament.prize_mode || "winner_takes_all";
+        const betMode = tournament.bet_mode || "money";
+        const existingNames = tournament.players.map(p => p.player_name);
+        const playerNames = [...tournament.players]
+          .sort((a, b) => {
+            const ra = (players.find(p => p.name === a.player_name) || {}).rating || 0;
+            const rb = (players.find(p => p.name === b.player_name) || {}).rating || 0;
+            return rb - ra;
+          })
+          .map(p => p.player_name);
+
+        // Prize calculations
+        function calcPrizes(pool) {
+          if (prizeMode === "top3_split") {
+            return {
+              first: Math.round(pool * 0.6),
+              second: Math.round(pool * 0.25),
+              third: Math.round(pool * 0.15),
+            };
+          }
+          return { first: pool, second: 0, third: 0 };
+        }
+        const prizes = calcPrizes(prizePool);
+
+        // Mobile listener
+        React.useEffect(() => {
+          const fn = () => setIsMobile(window.innerWidth <= 640);
+          window.addEventListener("resize", fn);
+          return () => window.removeEventListener("resize", fn);
+        }, []);
+
+        // Build bracket with BYE support for odd player count
+        function buildBracket(names) {
+          if (names.length < 2) return null;
+          const _n = names.length;
+          const slots = Array(_n).fill(null);
+          let lo = 0, hi = _n - 1, toggle = true;
+          for (let i = 0; i < _n; i++) {
+            if (toggle) { slots[lo++] = names[i]; }
+            else { slots[hi--] = names[i]; }
+            toggle = !toggle;
+          }
+          const rounds = [];
+          let current = slots;
+          const r1matches = [];
+          for (let i = 0; i < current.length; i += 2) {
+            if (i + 1 < current.length) {
+              r1matches.push({ p1: current[i], p2: current[i+1], winner: null, bye: false });
+            } else {
+              // Odd player: BYE match — auto-win
+              r1matches.push({ p1: current[i], p2: null, winner: current[i], bye: true });
+            }
+          }
+          rounds.push(r1matches);
+          // Subsequent rounds
+          let prevCount = r1matches.length;
+          while (prevCount > 1) {
+            const nextCount = Math.ceil(prevCount / 2);
+            const rMatches = [];
+            for (let i = 0; i < nextCount; i++) {
+              rMatches.push({ p1: null, p2: null, winner: null, bye: false });
+            }
+            rounds.push(rMatches);
+            prevCount = nextCount;
+          }
+          // Auto-propagate BYE winners into next round
+          r1matches.forEach((m, mi) => {
+            if (m.bye && m.winner && rounds.length > 1) {
+              const nextMi = Math.floor(mi / 2);
+              const isP1 = mi % 2 === 0;
+              rounds[1][nextMi][isP1 ? "p1" : "p2"] = m.winner;
+            }
+          });
+          return rounds;
+        }
+
+        // Load bracket from server on mount (once)
+        React.useEffect(() => {
+          if (bracketLoaded) return;
+          setBracketLoaded(true);
+          if (tournament.bracket_json) {
+            try {
+              const parsed = JSON.parse(tournament.bracket_json);
+              setBracketRaw(parsed);
+              return;
+            } catch(e) {}
+          }
+          // No saved bracket — build from players if enough
+          if (playerNames.length >= 2) {
+            setBracketRaw(buildBracket(playerNames));
+          }
+        }, []);
+
+        // When players added/removed in active tournament — rebuild bracket, preserving results
+        React.useEffect(() => {
+          if (!isActive || !bracketLoaded) return;
+          if (playerNames.length < 2) { setBracketRaw(null); return; }
+          setBracketRaw(prev => {
+            const fresh = buildBracket(playerNames);
+            if (!prev) return fresh;
+            // Preserve winners from existing bracket where player names still match
+            fresh.forEach((round, ri) => {
+              if (!prev[ri]) return;
+              round.forEach((match, mi) => {
+                const old = prev[ri][mi];
+                if (!old) return;
+                if (match.p1 === old.p1 && match.p2 === old.p2 && old.winner) {
+                  match.winner = old.winner;
+                }
+              });
+            });
+            return fresh;
+          });
+          setThirdPlaceMatch(null);
+        }, [playerNames.join(',')]);
+
+        // Auto-save bracket to server with debounce (only when active)
+        React.useEffect(() => {
+          if (!bracket || !isActive || !bracketLoaded) return;
+          if (saveTimer.current) clearTimeout(saveTimer.current);
+          saveTimer.current = setTimeout(() => {
+            apiFetch(`/api/tournaments/${tournamentId}/bracket`, {
+              method: "POST",
+              body: JSON.stringify({ bracket_json: JSON.stringify(bracket) })
+            }).catch(() => {});
+          }, 800);
+          return () => { if (saveTimer.current) clearTimeout(saveTimer.current); };
+        }, [bracket]);
+
+        // Auto-finish tournament when bracket final winner is determined
+        React.useEffect(() => {
+          if (!bracket || !isActive) return;
+          const finalRound = bracket[bracket.length - 1];
+          if (finalRound.length !== 1) return;
+          const finalWinner = finalRound[0].winner;
+          if (!finalWinner || tournament.winner_name) return;
+
+          // Check if 3rd place match is needed and possible
+          let needsThirdPlaceMatch = false;
+          if (bracket.length >= 3) {
+            const semiFinalRound = bracket[bracket.length - 2];
+            const semiLosers = semiFinalRound
+              .filter(m => m.winner && !m.bye)
+              .map(m => m.winner === m.p1 ? m.p2 : m.p1)
+              .filter(Boolean);
+
+            // Only require 3rd place match if there are 2 semifinal losers
+            if (semiLosers.length >= 2) {
+              needsThirdPlaceMatch = true;
+              if (!thirdPlaceMatch || !thirdPlaceMatch.winner) return;
+            }
+          }
+
+          // Progressive rating: deeper rounds = more points
+          // R1=5, R2=10, R3(QF)=15, R4(SF)=20, Final=30
+          // Bonuses: Winner +50, Runner-up +20, 3rd place +10, Participant +2
+          const totalRounds = bracket.length;
+          function roundPts(ri) {
+            return [5, 10, 15, 20, 30][Math.min(ri, 4)];
+          }
+          const ratingDeltas = {};
+          bracket.forEach((round, ri) => {
+            if (!Array.isArray(round)) return;
+            round.forEach(match => {
+              if (match.winner && !match.bye) {
+                ratingDeltas[match.winner] = (ratingDeltas[match.winner] || 0) + roundPts(ri);
+              }
+            });
+          });
+
+          // Determine 2nd place: finalist who lost the final
+          const finalMatch = finalRound[0];
+          const secondName = finalMatch.p1 === finalWinner ? finalMatch.p2 : finalMatch.p1;
+
+          // 3rd place: from the dedicated 3rd place match
+          const thirdName = thirdPlaceMatch ? thirdPlaceMatch.winner : null;
+
+          // Place bonuses
+          ratingDeltas[finalWinner] = (ratingDeltas[finalWinner] || 0) + 50;
+          if (secondName) ratingDeltas[secondName] = (ratingDeltas[secondName] || 0) + 20;
+          if (thirdName)  ratingDeltas[thirdName]  = (ratingDeltas[thirdName]  || 0) + 10;
+
+          // For players who didn't win any match, send 0 (backend will apply penalty)
+          tournament.players.forEach(p => {
+            if (!ratingDeltas[p.player_name]) ratingDeltas[p.player_name] = 0;
+          });
+
+          setFinishBusy(true);
+          apiFetch(`/api/tournaments/${tournamentId}/finish`, {
+            method: "POST",
+            body: JSON.stringify({
+              winner_name: finalWinner,
+              second_name: secondName || null,
+              third_name: thirdName || null,
+              bracket_json: JSON.stringify(bracket),
+              rounds_won: ratingDeltas
+            })
+          }).then(() => onReload()).catch(() => {}).finally(() => setFinishBusy(false));
+        }, [bracket, thirdPlaceMatch]);
+
+        function applyWinner(ri, mi, winner) {
+          setBracketRaw(state => {
+            if (!state) return state;
+            const nb = state.map(r => r.map(m => ({ ...m })));
+            nb[ri][mi].winner = winner;
+            if (ri + 1 < nb.length) {
+              const nextMi = Math.floor(mi / 2);
+              const isP1 = mi % 2 === 0;
+              nb[ri + 1][nextMi][isP1 ? "p1" : "p2"] = winner;
+              nb[ri + 1][nextMi].winner = null;
+              for (let r = ri + 2; r < nb.length; r++) {
+                const m2 = Math.floor(mi / Math.pow(2, r - ri));
+                if (nb[r] && nb[r][m2]) { nb[r][m2].winner = null; }
+              }
+            }
+            return nb;
+          });
+        }
+
+        function clearWinner(ri, mi) {
+          setBracketRaw(state => {
+            if (!state) return state;
+            const nb = state.map(r => r.map(m => ({ ...m })));
+            nb[ri][mi].winner = null;
+            if (ri + 1 < nb.length) {
+              const nextMi = Math.floor(mi / 2);
+              const isP1 = mi % 2 === 0;
+              nb[ri + 1][nextMi][isP1 ? "p1" : "p2"] = null;
+              nb[ri + 1][nextMi].winner = null;
+              for (let r = ri + 2; r < nb.length; r++) {
+                const m2 = Math.floor(mi / Math.pow(2, r - ri));
+                if (nb[r] && nb[r][m2]) { nb[r][m2].winner = null; nb[r][m2].p1 = null; nb[r][m2].p2 = null; }
+              }
+            }
+            return nb;
+          });
+        }
+
+        function setSlotPlayer(mi, side, name) {
+          setBracketRaw(state => {
+            if (!state) return state;
+            const nb = state.map(r => r.map(m => ({ ...m })));
+            // If this player is already in another slot, clear that slot
+            if (name) {
+              nb[0].forEach((match, mIdx) => {
+                ["p1","p2"].forEach(s => {
+                  if (match[s] === name && !(mIdx === mi && s === side)) {
+                    nb[0][mIdx][s] = null;
+                    nb[0][mIdx].winner = null;
+                    nb[0][mIdx].bye = false;
+                  }
+                });
+              });
+            }
+            nb[0][mi][side] = name || null;
+            nb[0][mi].winner = null;
+            nb[0][mi].bye = false;
+            return nb;
+          });
+        }
+
+        function getR1PlacedNames() {
+          if (!bracket) return new Set();
+          const s = new Set();
+          bracket[0].forEach(m => {
+            if (m.p1 && m.p1 !== "BYE") s.add(m.p1);
+            if (m.p2 && m.p2 !== "BYE") s.add(m.p2);
+          });
+          return s;
+        }
+
+        function getRoundName(total, ri) {
+          const fromEnd = total - 1 - ri;
+          if (fromEnd === 0) return "Финал";
+          if (fromEnd === 1) return "Полуфинал";
+          if (fromEnd === 2) return "1/4 финала";
+          if (fromEnd === 3) return "1/8 финала";
+          return `Раунд ${ri + 1}`;
+        }
+
+        // Custom dropdown for bracket R1 slots — shows avatar, name, rating, placement status
+        function BracketPlayerSelect({ name, matchIdx, side }) {
+          const [open, setOpen] = React.useState(false);
+          const [dropStyle, setDropStyle] = React.useState({});
+          const tRef = React.useRef(null);
+          const dRef = React.useRef(null);
+
+          const calcPos = () => {
+            if (!tRef.current) return;
+            const r = tRef.current.getBoundingClientRect();
+            setDropStyle({ position:"fixed", top:r.bottom+4, left:r.left, width:Math.max(r.width, 200), zIndex:9999 });
+          };
+
+          React.useEffect(() => {
+            const onDown = e => {
+              if (!(tRef.current && tRef.current.contains(e.target)) &&
+                  !(dRef.current && dRef.current.contains(e.target))) setOpen(false);
+            };
+            document.addEventListener("mousedown", onDown);
+            return () => document.removeEventListener("mousedown", onDown);
+          }, []);
+
+          const placed = getR1PlacedNames();
+          const pick = (pname) => { setSlotPlayer(matchIdx, side, pname); setOpen(false); };
+
+          const drop = open ? (
+            <div ref={dRef} style={{ ...dropStyle, background:"#fff", borderRadius:8, border:"1px solid #E8EAEC",
+              boxShadow:"0 8px 24px rgba(0,0,0,.14)", maxHeight:240, overflowY:"auto" }}>
+              {name && (
+                <div onClick={() => pick("")}
+                  style={{ display:"flex", alignItems:"center", gap:8, padding:"7px 12px", cursor:"pointer",
+                    borderBottom:"1px solid #F5F5F5", background:"#fff" }}
+                  onMouseEnter={e => e.currentTarget.style.background="#FFF5F5"}
+                  onMouseLeave={e => e.currentTarget.style.background="#fff"}>
+                  <span style={{ fontSize:12, color:"#C62828", flex:1 }}>— убрать игрока —</span>
+                </div>
+              )}
+              {playerNames.map(pname => {
+                const isSelected = pname === name;
+                const isPlacedElsewhere = placed.has(pname) && !isSelected;
+                const rating = (players.find(pl => pl.name === pname) || {}).rating;
+                return (
+                  <div key={pname} onClick={() => pick(pname)}
+                    style={{ display:"flex", alignItems:"center", gap:8, padding:"7px 12px", cursor:"pointer",
+                      background:isSelected?"#FEF3E8":"#fff", opacity:isPlacedElsewhere?0.55:1 }}
+                    onMouseEnter={e => e.currentTarget.style.background = isSelected?"#FEF3E8":"#FAFBFC"}
+                    onMouseLeave={e => e.currentTarget.style.background = isSelected?"#FEF3E8":"#fff"}>
+                    <Avatar name={pname} size={20}/>
+                    <span style={{ fontWeight:600, fontSize:13, flex:1, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{pname}</span>
+                    {rating !== undefined && <span style={{ color:"#8C9BAB", fontSize:11, flexShrink:0 }}>{rating}</span>}
+                    {isPlacedElsewhere && (
+                      <span style={{ fontSize:10, color:"#8C9BAB", background:"#F0F2F5", borderRadius:4, padding:"1px 5px", marginLeft:2, flexShrink:0 }}>в сетке</span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          ) : null;
+
+          return (
+            <div style={{ position:"relative" }}>
+              <div ref={tRef} onClick={() => { calcPos(); setOpen(o => !o); }}
+                style={{ display:"flex", alignItems:"center", gap:7, padding:"0 26px 0 8px", height:34,
+                  borderRadius:7, border:"1.5px solid #E8EAEC", background:"#fff", cursor:"pointer",
+                  userSelect:"none", position:"relative", overflow:"hidden", transition:"border-color .12s" }}>
+                {name ? (
+                  <>
+                    <Avatar name={name} size={18}/>
+                    <span style={{ fontWeight:500, fontSize:13, flex:1, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{name}</span>
+                  </>
+                ) : (
+                  <span style={{ fontSize:12, color:"#C8D0DA", flex:1 }}>— выбрать —</span>
+                )}
+                <span style={{ position:"absolute", right:8, top:"50%",
+                  transform:open?"translateY(-50%) rotate(180deg)":"translateY(-50%)",
+                  color:"#8C9BAB", fontSize:9, transition:"transform .15s", lineHeight:1, pointerEvents:"none" }}>▼</span>
+              </div>
+              {ReactDOM.createPortal(drop, document.body)}
+            </div>
+          );
+        }
+
+        function PlayerSlot({ name, matchIdx, side, isWinner, roundIdx, isBye }) {
+          const isR1 = roundIdx === 0;
+
+          if (isBye && !name) {
+            return (
+              <div style={{ height:34,borderRadius:7,background:"#F0F0F0",display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,color:"#C8D0DA",fontStyle:"italic" }}>
+                BYE
+              </div>
+            );
+          }
+
+          if (!isR1) {
+            if (!name) return <div style={{ height:34,borderRadius:7,background:"#F5F5F5",display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,color:"#C8D0DA" }}>—</div>;
+            const isFinalWinner = !isActive && name === tournament.winner_name;
+            const isFinalSecond = !isActive && name === tournament.second_name;
+            const isFinalThird = !isActive && name === tournament.third_name;
+            const placeEmoji = isFinalWinner ? "🏆" : isFinalSecond ? "🥈" : isFinalThird ? "🥉" : isWinner ? "✓" : null;
+            return (
+              <div style={{ display:"flex",alignItems:"center",gap:7,padding:"0 8px",height:34,borderRadius:7,
+                background:isWinner?"#E8F5E9":"#F8F9FA",border:isWinner?"1.5px solid #2E7D32":"1.5px solid #E8EAEC" }}>
+                <Avatar name={name} size={18}/>
+                <span style={{ fontWeight:isWinner?700:500,fontSize:13,flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",color:isWinner?"#2E7D32":"#1A1A1A" }}>{name}</span>
+                {placeEmoji && <span style={{ fontSize:10 }}>{placeEmoji}</span>}
+              </div>
+            );
+          }
+
+          // R1 slot: static chip when locked (has winner or inactive), BracketPlayerSelect when editable
+          const matchHasWinner = bracket && bracket[roundIdx] && bracket[roundIdx][matchIdx]?.winner;
+          if (matchHasWinner || !isActive) {
+            return (
+              <div style={{ display:"flex",alignItems:"center",gap:7,padding:"0 8px",height:34,borderRadius:7,
+                background:isWinner?"#E8F5E9":"#F8F9FA",border:isWinner?"1.5px solid #2E7D32":"1.5px solid #E8EAEC" }}>
+                {name ? <><Avatar name={name} size={18}/>
+                <span style={{ fontWeight:isWinner?700:500,fontSize:13,flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",color:isWinner?"#2E7D32":"#1A1A1A" }}>{name}</span>
+                {isWinner && <span style={{ fontSize:10 }}>✓</span>}</> : <span style={{ fontSize:12,color:"#C8D0DA",flex:1 }}>—</span>}
+              </div>
+            );
+          }
+
+          return <BracketPlayerSelect name={name} matchIdx={matchIdx} side={side}/>;
+        }
+
+        function MatchCard({ match, matchIdx, roundIdx }) {
+          const canPlay = isActive && match.p1 && match.p2 && !match.bye;
+          const isBye = match.bye;
+          const isFinal = bracket && roundIdx === bracket.length - 1;
+          const canAdvance = isActive && match.p1 && !match.p2 && !isBye && !match.winner && !isFinal;
+          return (
+            <div style={{ background:"#FAFBFC",borderRadius:10,border:"1px solid #E8EAEC",overflow:"hidden" }}>
+              <div style={{ padding:"5px 5px 3px" }}>
+                <PlayerSlot name={match.p1} matchIdx={matchIdx} side="p1" isWinner={match.winner===match.p1&&!isBye} roundIdx={roundIdx} isBye={false}/>
+              </div>
+              <div style={{ height:1,background:"#E8EAEC",margin:"0 5px" }}/>
+              <div style={{ padding:"3px 5px 5px" }}>
+                {isBye
+                  ? <div style={{ height:34,borderRadius:7,background:"#F0F0F0",display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,color:"#C8D0DA",fontStyle:"italic" }}>BYE — авто-проход</div>
+                  : <PlayerSlot name={match.p2} matchIdx={matchIdx} side="p2" isWinner={match.winner===match.p2} roundIdx={roundIdx} isBye={false}/>
+                }
+              </div>
+              {/* Fixed-height action row — keeps all cards same height for bracket alignment */}
+              <div style={{ height:33,borderTop:"1px solid #F0F0F0",display:"flex",alignItems:"center",padding:"0 5px",gap:3 }}>
+                {canPlay && !match.winner && (
+                  <>{[{n:match.p1,s:"p1"},{n:match.p2,s:"p2"}].map(btn => (
+                    <button key={btn.s} onClick={() => applyWinner(roundIdx, matchIdx, btn.n)}
+                      style={{ flex:1,padding:"4px 6px",borderRadius:6,border:"1px solid #D0E8D0",background:"#F0FAF0",cursor:"pointer",fontSize:11,fontWeight:600,color:"#2E7D32",transition:"background .1s" }}
+                      onMouseEnter={e=>e.currentTarget.style.background="#E8F5E9"}
+                      onMouseLeave={e=>e.currentTarget.style.background="#F0FAF0"}>
+                      {btn.n.split(" ")[0]} ✓
+                    </button>
+                  ))}</>
+                )}
+                {canAdvance && (
+                  <button onClick={() => applyWinner(roundIdx, matchIdx, match.p1)}
+                    style={{ flex:1,padding:"4px 6px",borderRadius:6,border:"1px solid #D0E8D0",background:"#F0FAF0",cursor:"pointer",fontSize:11,fontWeight:600,color:"#2E7D32",transition:"background .1s" }}
+                    onMouseEnter={e=>e.currentTarget.style.background="#E8F5E9"}
+                    onMouseLeave={e=>e.currentTarget.style.background="#F0FAF0"}>
+                    Перевести дальше ➜
+                  </button>
+                )}
+                {isBye && match.p1 && (
+                  <span style={{ fontSize:11,color:"#2E7D32",fontWeight:600 }}>✓ {match.p1} проходит автоматически</span>
+                )}
+                {match.winner && !isBye && isActive && (
+                  <button onClick={() => clearWinner(roundIdx, matchIdx)}
+                    style={{ fontSize:10,color:"#8C9BAB",background:"none",border:"none",cursor:"pointer",padding:"2px 4px",marginLeft:"auto" }}>
+                    сбросить
+                  </button>
+                )}
+              </div>
+            </div>
+          );
+        }
+
+        function BracketView() {
+          if (!bracket) {
+            return (
+              <div style={{ padding:"28px 20px",textAlign:"center",color:"#8C9BAB",fontSize:14 }}>
+                {playerNames.length < 2
+                  ? "Добавьте минимум 2 игроков — сетка создастся автоматически"
+                  : <button onClick={() => setBracketRaw(buildBracket(playerNames))} style={{ ...btnOutline,padding:"8px 18px",fontSize:14 }}>Создать сетку</button>
+                }
+              </div>
+            );
+          }
+
+          const placed = getR1PlacedNames();
+          const pool = playerNames.filter(n => !placed.has(n));
+          const totalRounds = bracket.length;
+          const finalWinner = bracket[totalRounds-1][0]?.winner;
+
+          // matchH must match actual card height: p1(42) + divider(1) + p2(42) + action(34) + border(2) = 121
+          const matchH = 121;
+          const matchGap = 10;
+
+          // Compute vertical centers for each match in each round
+          // Handles non-power-of-2 brackets (odd player counts)
+          function computeCenters(bracket) {
+            const centers = bracket.map(() => []);
+            bracket[0].forEach((_, mi) => {
+              centers[0][mi] = mi * (matchH + matchGap) + matchH / 2;
+            });
+            for (let ri = 1; ri < bracket.length; ri++) {
+              const prev = centers[ri - 1];
+              bracket[ri].forEach((_, mi) => {
+                const a = prev[2 * mi];
+                const b = prev[2 * mi + 1];
+                centers[ri][mi] = b !== undefined ? (a + b) / 2 : a;
+              });
+            }
+            return centers;
+          }
+          const allCenters = computeCenters(bracket);
+
+          return (
+            <div style={{ padding:"16px 20px" }}>
+              {/* Unplaced players pool */}
+              {pool.length > 0 && (
+                <div style={{ marginBottom:14,padding:"10px 12px",background:"#F8F9FA",borderRadius:10,border:"1px solid #E8EAEC" }}>
+                  <div style={{ fontSize:11,fontWeight:700,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.7,marginBottom:8 }}>
+                    Вне сетки:
+                  </div>
+                  <div style={{ display:"flex",flexWrap:"wrap",gap:8 }}>
+                    {pool.map(name => (
+                      <div key={name}
+                        style={{ display:"flex",alignItems:"center",gap:7,padding:"5px 10px",background:"#fff",borderRadius:8,border:"1px solid #E8EAEC",userSelect:"none" }}>
+                        <Avatar name={name} size={18}/>
+                        <span style={{ fontWeight:600,fontSize:13 }}>{name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {finishBusy && <div style={{ marginBottom:14,padding:"8px 14px",background:"#F0FBF1",borderRadius:8,fontSize:13,color:"#2E7D32",fontWeight:600 }}>⏳ Сохраняем результаты турнира…</div>}
+
+              {/* 3rd place match — shown when semifinal losers are known and bracket has >= 3 rounds */}
+              {isActive && bracket && bracket.length >= 3 && (() => {
+                const semiFinalRound = bracket[bracket.length - 2];
+                const semiLosers = semiFinalRound
+                  .filter(m => m.winner && !m.bye)
+                  .map(m => m.winner === m.p1 ? m.p2 : m.p1)
+                  .filter(Boolean);
+                if (semiLosers.length < 2) return null;
+                const tpm = thirdPlaceMatch || { p1: semiLosers[0], p2: semiLosers[1], winner: null };
+                // Update if players changed
+                const applyThirdWinner = (winner) => {
+                  setThirdPlaceMatch({ p1: tpm.p1, p2: tpm.p2, winner });
+                };
+                return (
+                  <div style={{ marginBottom:14,padding:"10px 14px",background:"#F8F9FA",borderRadius:10,border:"1px solid #E8EAEC" }}>
+                    <div style={{ fontSize:11,fontWeight:700,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.7,marginBottom:8 }}>🥉 Матч за 3-е место</div>
+                    <div style={{ display:"flex",alignItems:"center",gap:8,flexWrap:"wrap" }}>
+                      {[{n:tpm.p1,s:"p1"},{n:tpm.p2,s:"p2"}].map((btn,i) => (
+                        <React.Fragment key={btn.s}>
+                          {i===1 && <span style={{ fontSize:13,color:"#C8D0DA",fontWeight:700 }}>vs</span>}
+                          <div style={{ display:"flex",alignItems:"center",gap:6,padding:"6px 10px",borderRadius:8,border:tpm.winner===btn.n?"2px solid #6A1B9A":"1px solid #E8EAEC",background:tpm.winner===btn.n?"#F3E5F5":"#fff" }}>
+                            <Avatar name={btn.n} size={20}/>
+                            <span style={{ fontWeight:600,fontSize:13 }}>{btn.n}</span>
+                            {tpm.winner===btn.n && <span style={{ fontSize:12 }}>🥉</span>}
+                          </div>
+                        </React.Fragment>
+                      ))}
+                      {!tpm.winner && (
+                        <div style={{ display:"flex",gap:6,marginLeft:"auto" }}>
+                          {[tpm.p1,tpm.p2].map(n => (
+                            <button key={n} onClick={() => applyThirdWinner(n)}
+                              style={{ padding:"5px 10px",borderRadius:6,border:"1px solid #E8EAEC",background:"#fff",cursor:"pointer",fontSize:12,fontWeight:600,color:"#6A1B9A" }}>
+                              {n.split(" ")[0]} 🥉
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      {tpm.winner && (
+                        <button onClick={() => applyThirdWinner(null)} style={{ marginLeft:"auto",fontSize:10,color:"#8C9BAB",background:"none",border:"none",cursor:"pointer" }}>сбросить</button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Desktop horizontal bracket */}
+              <div className="hide-mob" style={{ overflowX:"auto",paddingBottom:4 }}>
+                <div style={{ display:"flex",gap:16,minWidth:"max-content",alignItems:"flex-start" }}>
+                  {bracket.map((round, ri) => {
+                    const centers = allCenters[ri];
+                    const topPad = centers[0] - matchH / 2;
+                    return (
+                      <div key={ri} style={{ minWidth:210,flexShrink:0 }}>
+                        <div style={{ fontSize:11,fontWeight:700,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.7,marginBottom:10,textAlign:"center" }}>
+                          {getRoundName(totalRounds, ri)}
+                        </div>
+                        <div style={{ display:"flex",flexDirection:"column",paddingTop:topPad }}>
+                          {round.map((match, mi) => {
+                            const marginBottom = mi < round.length - 1
+                              ? centers[mi + 1] - centers[mi] - matchH
+                              : 0;
+                            return (
+                              <div key={mi} style={{ marginBottom }}>
+                                <MatchCard match={match} matchIdx={mi} roundIdx={ri}/>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Mobile vertical bracket */}
+              <div className="mob-list">
+                {bracket.map((round, ri) => (
+                  <div key={ri} style={{ marginBottom:16 }}>
+                    <div style={{ fontSize:11,fontWeight:700,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.7,marginBottom:8 }}>
+                      {getRoundName(totalRounds, ri)}
+                    </div>
+                    <div style={{ display:"flex",flexDirection:"column",gap:8 }}>
+                      {round.map((match, mi) => (
+                        <MatchCard key={mi} match={match} matchIdx={mi} roundIdx={ri}/>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+
+            </div>
+          );
+        }
+
+        async function addPlayer(playerName, bet) {
+          await apiFetch(`/api/tournaments/${tournamentId}/players`, {
+            method: "POST", body: JSON.stringify({ player_name: playerName, bet })
+          });
+          await onReload();
+        }
+        async function removePlayer() {
+          setBusy(true);
+          try {
+            await apiFetch(`/api/tournaments/${tournamentId}/players/${confirmRemove}`, { method: "DELETE" });
+            setConfirmRemove(null);
+            await onReload();
+          } finally { setBusy(false); }
+        }
+
+        // Rating delta label
+        function RatingDelta({ delta }) {
+          if (delta === undefined || delta === null || delta === 0) return null;
+          const pos = delta > 0;
+          return (
+            <span style={{ fontSize:11,fontWeight:700,color:pos?"#2E7D32":"#C62828",background:pos?"#E8F5E9":"#FFEBEE",borderRadius:5,padding:"1px 5px",marginLeft:4 }}>
+              {pos?"+":" "}{delta}
+            </span>
+          );
+        }
+
+        // Completed tournament places
+        const place1 = tournament.winner_name;
+        const place2 = tournament.second_name;
+        const place3 = tournament.third_name;
+
+        // Rating points earned by winner (for header display)
+        const winnerPlayer = !isActive && tournament.players.find(p => p.player_name === tournament.winner_name);
+        const winnerRatingDelta = winnerPlayer ? winnerPlayer.rating_delta : null;
+
+        return (
+          <div style={{ ...card, marginBottom: 14 }}>
+            {confirmRemove && <ConfirmModal text="Удалить игрока из турнира?" onConfirm={removePlayer} onCancel={() => setConfirmRemove(null)} loading={busy} />}
+
+            {/* ── Header ── */}
+            <div style={ch}>
+              {/* Collapse button for finished — left of title */}
+              {(
+                <button onClick={onToggle} style={{
+                  background:"none", border:"1px solid #E8EAEC", borderRadius:6,
+                  padding:0, width:34, height:34, cursor:"pointer", color:"#1A1A1A",
+                  display:"flex", alignItems:"center", justifyContent:"center",
+                  transition:"all .15s", lineHeight:0, flexShrink:0, marginRight:18
+                }}
+                  onMouseEnter={e=>{e.currentTarget.style.background="#F2F3F5";e.currentTarget.style.borderColor="#C8D0DA";e.currentTarget.style.color="#1A1A1A";}}
+                  onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.borderColor="#E8EAEC";e.currentTarget.style.color="#1A1A1A";}}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                    {collapsed
+                      ? <><polyline points="6 9 12 15 18 9"/></>
+                      : <><polyline points="6 15 12 9 18 15"/></>
+                    }
+                  </svg>
+                </button>
+              )}
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+                  <span style={{ fontSize:15,fontWeight:700 }}>{isActive ? "⚔️" : "🏁"} {tournament.name}</span>
+                  {!isActive && place1 && (
+                    <>
+                      <span style={{ fontSize:15,fontWeight:700,color:"#8C9BAB" }}>·</span>
+                      <span style={{ fontSize:15,fontWeight:700,color:"#2E7D32" }}>{place1}</span>
+                    </>
+                  )}
+                  {isActive && (
+                    <span style={{ display:"inline-flex",alignItems:"center",gap:5,background:"#FFF0F0",border:"1px solid #FFCDD2",borderRadius:20,padding:"2px 8px 2px 6px",flexShrink:0 }}>
+                      <span className="live-dot" style={{ width:7,height:7,borderRadius:"50%",background:"#E53935",display:"inline-block",flexShrink:0 }}/>
+                      <span style={{ fontSize:10,fontWeight:800,color:"#E53935",letterSpacing:.8 }}>LIVE</span>
+                    </span>
+                  )}
+                </div>
+                <div style={{ fontSize:11,color:"#8C9BAB",marginTop:2 }}>{prizeMode === "top3_split" ? "🏅 Раздел призов 1–3 место" : "🥇 Победитель забирает всё"}</div>
+              </div>
+
+              {/* Desktop: stats + winner inline on right */}
+              <div className="desk-flex" style={{ alignItems:"center", gap:18, flexShrink:0, marginLeft:12 }}>
+                {/* Stats pills */}
+                <div style={{ display:"flex", gap:16 }}>
+                  <div style={{ textAlign:"left" }}>
+                    <div style={{ fontSize:11,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.5 }}>Игроков</div>
+                    <div style={{ fontSize:15,fontWeight:800,color:"#1A1A1A" }}>{tournament.players.length}</div>
+                  </div>
+                  <div style={{ textAlign:"left" }}>
+                    <div style={{ fontSize:11,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.5 }}>Формат</div>
+                    <div style={{ fontSize:15,fontWeight:800,color:"#1A1A1A" }}>{betMode === "rating" ? "Рейтинг" : "Деньги"}</div>
+                  </div>
+                  <div style={{ textAlign:"left" }}>
+                    <div style={{ fontSize:11,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.5 }}>Банк</div>
+                    <div style={{ fontSize:15,fontWeight:800,color:"#E8822A" }}>{prizePool} {betMode === "rating" ? "⭐" : "💰"}</div>
+                  </div>
+                </div>
+                {isActive && <button onClick={() => setShowAdd(true)}
+                  style={{ background:"none", border:"1px solid #E8EAEC", borderRadius:6, padding:"0 14px", height:34, boxSizing:"border-box", fontSize:13, fontWeight:600, color:"#1A1A1A", cursor:"pointer", display:"flex", alignItems:"center", gap:6, justifyContent:"center", transition:"all .15s", flexShrink:0 }}
+                  onMouseEnter={e=>{e.currentTarget.style.background="#F2F3F5";e.currentTarget.style.borderColor="#C8D0DA";}}
+                  onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.borderColor="#E8EAEC";}}>Игрок <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></button>}
+                {isActive && <button onClick={e=>{e.stopPropagation();setShowEdit(true);}}
+                  style={{ background:"none", border:"1px solid #E8EAEC", borderRadius:6, padding:0, width:34, height:34, cursor:"pointer", color:"#1A1A1A", display:"flex", alignItems:"center", justifyContent:"center", transition:"all .15s", lineHeight:0, flexShrink:0 }}
+                  onMouseEnter={e=>{e.currentTarget.style.background="#F2F3F5";e.currentTarget.style.borderColor="#C8D0DA";}}
+                  onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.borderColor="#E8EAEC";}}
+                  title="Редактировать турнир"><PencilIcon /></button>}
+                <button className="del-btn" onClick={() => onDelete(tournamentId)} style={{...delBtn, color:"#C62828"}}><TrashIcon /></button>
+              </div>
+
+              {/* Mobile: just action buttons */}
+              <div className="mob" style={{ gap:8, flexShrink:0, marginLeft:8 }}>
+                {isActive && <button onClick={() => setShowAdd(true)} style={{ ...btnOutline, padding:"0 12px", height:34, boxSizing:"border-box", fontSize:13 }}>+ Игрок</button>}
+                <div style={{display:"flex",gap:18,alignItems:"center"}}>
+                  {isActive && <button onClick={e=>{e.stopPropagation();setShowEdit(true);}}
+                    style={{ background:"none", border:"1px solid #E8EAEC", borderRadius:6, padding:0, width:34, height:34, cursor:"pointer", color:"#1A1A1A", display:"flex", alignItems:"center", justifyContent:"center", transition:"all .15s", lineHeight:0, flexShrink:0 }}
+                    onMouseEnter={e=>{e.currentTarget.style.background="#F2F3F5";e.currentTarget.style.borderColor="#C8D0DA";}}
+                    onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.borderColor="#E8EAEC";}}
+                    title="Редактировать турнир"><PencilIcon /></button>}
+                  <button className="del-btn" onClick={() => onDelete(tournamentId)} style={{...delBtn, color:"#C62828"}}><TrashIcon /></button>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile stats tiles — always visible */}
+            <div className="mob" style={{ display:"none", flexWrap:"wrap", gap:8, padding:"12px 16px", borderBottom:"1px solid #E8EAEC", background:"#FAFBFC" }}>
+              <div style={{ flex:"1 1 calc(50% - 8px)",minWidth:100,background:"#fff",borderRadius:10,border:"1px solid #E8EAEC",padding:"10px 14px" }}>
+                <div style={{ fontSize:10,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.5,marginBottom:3 }}>Игроков</div>
+                <div style={{ fontSize:16,fontWeight:800,color:"#1A1A1A" }}>{tournament.players.length}</div>
+              </div>
+              <div style={{ flex:"1 1 calc(50% - 8px)",minWidth:100,background:"#fff",borderRadius:10,border:"1px solid #E8EAEC",padding:"10px 14px" }}>
+                <div style={{ fontSize:10,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.5,marginBottom:3 }}>Формат</div>
+                <div style={{ fontSize:16,fontWeight:800,color:"#1A1A1A" }}>{betMode === "rating" ? "Рейтинг" : "Деньги"}</div>
+              </div>
+              <div style={{ flex:"1 1 calc(50% - 8px)",minWidth:100,background:"#fff",borderRadius:10,border:"1px solid #E8EAEC",padding:"10px 14px" }}>
+                <div style={{ fontSize:10,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.5,marginBottom:3 }}>Банк</div>
+                <div style={{ fontSize:16,fontWeight:800,color:"#E8822A" }}>{prizePool} {betMode === "rating" ? "⭐" : "💰"}</div>
+              </div>
+              {!isActive && (() => {
+                const getMob = (icon, label, name, prize) => {
+                  if (!name) return null;
+                  const pl = tournament.players.find(p => p.player_name === name);
+                  const rd = pl ? pl.rating_delta : null;
+                  const prizeEmoji = betMode === "rating" ? "⭐" : "💰";
+                  return (
+                    <div key={label} style={{ flex:"1 1 calc(50% - 8px)",minWidth:100,background:"#fff",borderRadius:10,border:"1px solid #E8EAEC",padding:"10px 14px" }}>
+                      <div style={{ fontSize:10,color:"#8C9BAB",textTransform:"uppercase",letterSpacing:.5,marginBottom:3 }}>{icon} {label}</div>
+                      <div style={{ fontSize:14,fontWeight:800,color:"#1A1A1A",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{name}</div>
+                      <div style={{ display:"flex",alignItems:"center",gap:6,marginTop:2,flexWrap:"wrap" }}>
+                        <span style={{ fontSize:12,fontWeight:700,color:"#E8822A" }}>{prize} {prizeEmoji}</span>
+                        {rd !== null && rd !== 0 && (
+                          <span style={{ fontSize:11,fontWeight:700,color:rd>0?"#2E7D32":"#C62828",background:rd>0?"#E8F5E9":"#FFEBEE",borderRadius:5,padding:"1px 5px" }}>
+                            {rd>0?"+":""}{rd}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                };
+                return [
+                  getMob("🥇", prizeMode==="winner_takes_all"?"Победитель":"1-е место", place1, prizeMode==="winner_takes_all"?prizePool:prizes.first),
+                  ...(prizeMode==="top3_split" ? [
+                    getMob("🥈", "2-е место", place2, prizes.second),
+                    getMob("🥉", "3-е место", place3, prizes.third),
+                  ] : []),
+                ].filter(Boolean);
+              })()}
+            </div>
+
+            {/* Desktop: horizontal stats row (only for active; finished shows inline in header) */}
+            
+
+            {/* Finished: top-3 places row (desktop) — only for top3_split, winner_takes_all hides this */}
+            {!isActive && !collapsed && prizeMode === "top3_split" && (place1 || place2 || place3) && (
+              <div className="desk-flex" style={{ display:"none", borderBottom:"1px solid #E8EAEC", flexWrap:"wrap" }}>
+                {(() => {
+                  const getRatingDelta = (name) => {
+                    const pl = tournament.players.find(p => p.player_name === name);
+                    return pl ? pl.rating_delta : null;
+                  };
+                  const prizeEmoji = betMode === "rating" ? "⭐" : "💰";
+                  const places = [
+                    { icon:"🥇", label:"1-е место", name:place1, prize:prizes.first },
+                    { icon:"🥈", label:"2-е место", name:place2, prize:prizes.second },
+                    { icon:"🥉", label:"3-е место", name:place3, prize:prizes.third },
+                  ].filter(p => p.name);
+                  return places.map(p => {
+                    const rd = getRatingDelta(p.name);
+                    return (
+                      <div key={p.label} style={{ flex:"1 1 120px",padding:"10px 16px",borderRight:"1px solid #E8EAEC",minWidth:0 }}>
+                        <div style={{ fontSize:11,color:"#8C9BAB",marginBottom:3 }}>{p.icon} {p.label}</div>
+                        <div style={{ fontWeight:700,fontSize:14,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{p.name}</div>
+                        <div style={{ display:"flex",alignItems:"center",gap:8,marginTop:2,flexWrap:"wrap" }}>
+                          <span style={{ fontSize:12,color:"#E8822A",fontWeight:700 }}>{p.prize} {prizeEmoji}</span>
+                          {rd !== null && rd !== 0 && (
+                            <span style={{ fontSize:11,fontWeight:700,color:rd>0?"#2E7D32":"#C62828",background:rd>0?"#E8F5E9":"#FFEBEE",borderRadius:5,padding:"1px 6px" }}>
+                              {rd>0?"+":""}{rd}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
+            )}
+
+            {!collapsed && (<>
+
+            {tournament.players.length > 0 && (
+              <div style={{ display:"flex",borderBottom:"1px solid #E8EAEC",background:"#FAFBFC" }}>
+                {[{id:"bracket",label:"🏆 Сетка"},{id:"players",label:"👤 Игроки"}].map(tab => (
+                  <button key={tab.id} onClick={() => setBracketTab(tab.id)}
+                    style={{ flex:1,padding:"9px 0",border:"none",cursor:"pointer",fontSize:13,fontWeight:bracketTab===tab.id?700:500,
+                      background:"none",color:bracketTab===tab.id?"#E8822A":"#8C9BAB",
+                      borderBottom:bracketTab===tab.id?"2px solid #E8822A":"2px solid transparent",transition:"all .15s" }}>
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {(bracketTab === "players" || tournament.players.length === 0) && (
+              <>
+                {tournament.players.length === 0 ? (
+                  <div style={{ padding:"32px 20px",color:"#8C9BAB",fontSize:14,textAlign:"center" }}>
+                    <div style={{ fontSize:36,marginBottom:8 }}>🎮</div>
+                    {isActive ? "Добавь первого игрока!" : "Турнир без игроков"}
+                  </div>
+                ) : (() => {
+                  // Sort players: finished → by place; active → original order
+                  const placeOrder = { [place1]:1, [place2]:2, [place3]:3 };
+                  const sortedPlayers = !isActive
+                    ? [...tournament.players].sort((a,b) => {
+                        const pa = placeOrder[a.player_name] || 999;
+                        const pb = placeOrder[b.player_name] || 999;
+                        return pa - pb;
+                      })
+                    : tournament.players;
+
+                  return (
+                  <>
+                    <table className="desk-table" style={{ width:"100%",borderCollapse:"collapse" }}>
+                      <thead><tr>
+                        {["#","Игрок","Ставка","Доля в банке",...(!isActive?["Приз","Рейтинг"]:[""])].map((h,i) => <th key={i} style={th}>{h}</th>)}
+                      </tr></thead>
+                      <tbody>
+                        {sortedPlayers.map((p,i) => {
+                          const share = prizePool > 0 ? Math.round(p.bet / prizePool * 100) : 0;
+                          const isWinner = !isActive && tournament.winner_name === p.player_name;
+                          const isSecond = !isActive && tournament.second_name === p.player_name;
+                          const isThird = !isActive && tournament.third_name === p.player_name;
+                          const placeEmoji = isWinner ? "🏆" : isSecond ? "🥈" : isThird ? "🥉" : null;
+                          const prizeWon = isWinner ? (prizeMode==="winner_takes_all"?prizePool:prizes.first) : isSecond ? prizes.second : isThird ? prizes.third : 0;
+                          const betEmoji = betMode === "rating" ? "⭐" : "💰";
+                          const prizeEmoji = betMode === "rating" ? "⭐" : "💰";
+                          return (
+                            <tr key={p.id} className="row-hover" style={{ borderBottom:"1px solid #E8EAEC",background:isWinner?"#F0FBF1":isSecond?"#F5F0FA":isThird?"#FBF5E6":undefined }}>
+                              <td style={{ ...td,width:36,fontWeight:700,color:"#8C9BAB" }}>{i+1}</td>
+                              <td style={td}><div style={{ display:"flex",alignItems:"center",gap:10 }}><Avatar name={p.player_name} size={30}/><span style={{ fontWeight:600 }}>{p.player_name}</span>{placeEmoji&&<span>{placeEmoji}</span>}</div></td>
+                              <td style={{ ...td,fontWeight:800,fontSize:16,color:"#E8822A" }}>{p.bet} {betEmoji}</td>
+                              <td style={td}>
+                                <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+                                  <div style={{ flex:1,height:6,background:"#F0F0F0",borderRadius:3,overflow:"hidden",minWidth:60 }}>
+                                    <div style={{ height:"100%",width:`${share}%`,background:"#E8822A",borderRadius:3 }}/>
+                                  </div>
+                                  <span style={{ fontSize:12,fontWeight:600,color:"#8C9BAB",minWidth:32 }}>{share}%</span>
+                                </div>
+                              </td>
+                              {!isActive && (
+                                <td style={td}>
+                                  {prizeWon > 0
+                                    ? <span style={{ fontSize:13,fontWeight:800,color:"#E8822A" }}>{prizeWon} {prizeEmoji}</span>
+                                    : <span style={{ fontSize:12,color:"#C8D0DA" }}>—</span>
+                                  }
+                                </td>
+                              )}
+                              {!isActive && (
+                                <td style={td}>
+                                  {p.rating_delta !== 0 && p.rating_delta !== undefined
+                                    ? <span style={{ fontSize:12,fontWeight:700,color:p.rating_delta>0?"#2E7D32":"#C62828",background:p.rating_delta>0?"#E8F5E9":"#FFEBEE",borderRadius:5,padding:"2px 7px" }}>
+                                        {p.rating_delta>0?"+":""}{p.rating_delta}
+                                      </span>
+                                    : <span style={{ fontSize:12,color:"#C8D0DA" }}>—</span>
+                                  }
+                                </td>
+                              )}
+                              {isActive && <td style={{ ...td,textAlign:"right",width:1 }}><button className="del-btn" onClick={() => setConfirmRemove(p.id)} style={delBtn}><TrashIcon/></button></td>}
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                    <div className="mob-list">
+                      {sortedPlayers.map((p,i) => {
+                        const share = prizePool > 0 ? Math.round(p.bet / prizePool * 100) : 0;
+                        const isWinner = !isActive && tournament.winner_name === p.player_name;
+                        const isSecond = !isActive && tournament.second_name === p.player_name;
+                        const isThird = !isActive && tournament.third_name === p.player_name;
+                        const placeEmoji = isWinner ? "🏆" : isSecond ? "🥈" : isThird ? "🥉" : null;
+                        const prizeWon = isWinner ? (prizeMode==="winner_takes_all"?prizePool:prizes.first) : isSecond ? prizes.second : isThird ? prizes.third : 0;
+                        const betEmoji = betMode === "rating" ? "⭐" : "💰";
+                        const prizeEmoji = betMode === "rating" ? "⭐" : "💰";
+                        return (
+                          <div key={p.id} style={{ display:"flex",alignItems:"center",gap:10,padding:"12px 16px",borderBottom:"1px solid #E8EAEC",background:isWinner?"#F0FBF1":isSecond?"#F5F0FA":isThird?"#FBF5E6":undefined }}>
+                            <span style={{ fontWeight:700,fontSize:12,color:"#8C9BAB",minWidth:18,textAlign:"center" }}>{i+1}</span>
+                            <Avatar name={p.player_name} size={34}/>
+                            <div style={{ flex:1,minWidth:0 }}>
+                              <div style={{ fontWeight:700,fontSize:14 }}>{p.player_name} {placeEmoji||""}</div>
+                              <div style={{ display:"flex",alignItems:"center",gap:4,marginTop:1,flexWrap:"wrap" }}>
+                                <span style={{ fontSize:12,color:"#8C9BAB" }}>Ставка: {p.bet} {betEmoji} · {share}%</span>
+                                {prizeWon > 0 && <span style={{ fontSize:11,fontWeight:700,color:"#E8822A" }}>{prizeWon} {prizeEmoji}</span>}
+                                {!isActive && p.rating_delta !== 0 && p.rating_delta !== undefined && (
+                                  <span style={{ fontSize:11,fontWeight:700,color:p.rating_delta>0?"#2E7D32":"#C62828",background:p.rating_delta>0?"#E8F5E9":"#FFEBEE",borderRadius:5,padding:"1px 5px" }}>
+                                    {p.rating_delta>0?"+":""}{p.rating_delta}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            {isActive && <button className="del-btn" onClick={() => setConfirmRemove(p.id)} style={delBtn}><TrashIcon/></button>}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </>
+                  );
+                })()}
+              </>
+            )}
+
+            {bracketTab === "bracket" && tournament.players.length > 0 && <BracketView />}
+
+            </>)}
+
+            {showAdd && <AddTournamentPlayerModal players={players} existingNames={existingNames} onClose={() => setShowAdd(false)} onSubmit={addPlayer}/>}
+            {showEdit && (
+              <EditTournamentModal
+                tournament={tournament}
+                onClose={() => setShowEdit(false)}
+                onSubmit={async (name, prizeMode, betMode) => {
+                  await apiFetch(`/api/tournaments/${tournamentId}`, { method:"PUT", body:JSON.stringify({ name, prize_mode:prizeMode, bet_mode:betMode }) });
+                  onReload();
+                }}
+              />
+            )}
+          </div>
+        );
+      }
+
+      function TournamentPage({ tournaments, players, onReload }) {
+        const [showNew, setShowNew] = useState(false);
+        const [confirmDelete, setConfirmDelete] = useState(null);
+        const [delLoading, setDelLoading] = useState(false);
+        // openId: id of the tournament whose content is expanded; null = all collapsed
+        const firstActive = tournaments.find(t => t.status === "active");
+        const [openId, setOpenId] = useState(firstActive ? firstActive.id : null);
+        const active = tournaments.filter(t => t.status === "active");
+        const finished = tournaments.filter(t => t.status === "finished");
+
+        // When tournaments list changes (e.g. new one created), open the newest active one
+        React.useEffect(() => {
+          if (active.length > 0) {
+            // If nothing is open or previously open tournament no longer exists, open the latest active
+            const openStillExists = tournaments.find(t => t.id === openId);
+            if (!openStillExists) setOpenId(active[active.length - 1].id);
+          }
+        }, [tournaments.map(t=>t.id).join(',')]);
+
+        const [showAddForId, setShowAddForId] = useState(null);
+
+        async function createTournament(name, prizeMode, betMode) {
+          const newT = await apiFetch("/api/tournaments", { method:"POST", body:JSON.stringify({ name, prize_mode: prizeMode, bet_mode: betMode || "money" }) });
+          if (newT && newT.id) {
+            setOpenId(newT.id);
+            setShowAddForId(newT.id);
+          }
+          onReload();
+        }
+        async function handleDelete() {
+          setDelLoading(true);
+          try {
+            await apiFetch(`/api/tournaments/${confirmDelete}`, { method:"DELETE" });
+            if (confirmDelete === openId) setOpenId(null);
+            setConfirmDelete(null);
+            onReload();
+          } finally { setDelLoading(false); }
+        }
+
+        function handleToggle(id) {
+          setOpenId(prev => prev === id ? null : id);
+        }
+
+        return (
+          <div>
+            {confirmDelete && <ConfirmModal text="Удалить турнир и все ставки?" onConfirm={handleDelete} onCancel={() => setConfirmDelete(null)} loading={delLoading}/>}
+
+            {(() => {
+              // ── Compute tournament stats ──
+              const totalPrizePool = tournaments.reduce((s, t) => s + (t.prize_pool || 0), 0);
+              const finishedWithWinner = finished.filter(t => t.winner_name);
+              // Most successful player: most tournament wins
+              const winCounts = {};
+              finishedWithWinner.forEach(t => { winCounts[t.winner_name] = (winCounts[t.winner_name] || 0) + 1; });
+              const topWinner = Object.entries(winCounts).sort((a,b) => b[1]-a[1])[0];
+              // Biggest single tournament prize pool
+              const biggestT = tournaments.length ? tournaments.reduce((a, b) => (b.prize_pool||0) > (a.prize_pool||0) ? b : a) : null;
+              // Total participants across all tournaments (unique names)
+              const allParticipants = new Set(tournaments.flatMap(t => (t.players||[]).map(p => p.player_name)));
+
+              return (
+                <>
+                  {/* Stat widgets */}
+                  {tournaments.length > 0 && (
+                    <div className="stats-grid" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:10, marginBottom:14 }}>
+                      <StatCard label="Всего турниров" value={tournaments.length} icon="🏆" />
+                      {topWinner && <StatCard label="Лучший игрок" value={topWinner[0].split(" ")[0]} icon="👑" />}
+                      {biggestT && biggestT.prize_pool > 0 && <StatCard label="Макс. банк" value={biggestT.prize_pool + " 💰"} icon="🎯" />}
+                      {finishedWithWinner.length > 0 && <StatCard label="Всего призовых" value={finishedWithWinner.reduce((s,t) => s+(t.prize_pool||0),0) + " 💰"} icon="🏅" />}
+                    </div>
+                  )}
+
+                  {/* New tournament button */}
+                  {active.length === 0 && finished.length === 0 ? (
+                    <div style={{ ...card, padding:"60px 20px", textAlign:"center" }}>
+                      <div style={{ fontSize:52 }}>🏆</div>
+                      <div style={{ fontSize:15, color:"#8C9BAB", marginTop:12, lineHeight:1.6 }}>Нет турниров.<br/>Создай первый и добавь игроков со ставками!</div>
+                      <button onClick={() => setShowNew(true)}
+                        style={{ ...btnPrimary, marginTop:20, padding:"10px 28px", fontSize:14, fontWeight:700, borderRadius:9 }}>
+                        Новый турнир +
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      <button onClick={() => setShowNew(true)}
+                        style={{ ...btnPrimary, width:"100%", padding:"13px 0", fontSize:15, fontWeight:700, borderRadius:10, marginBottom:14, display:"flex", alignItems:"center", justifyContent:"center", gap:8 }}>
+                        Новый турнир +
+                      </button>
+                    <>
+                      {active.map(t => <TournamentCard key={t.id} tournament={t} players={players} onReload={onReload} onDelete={id => setConfirmDelete(id)} isOpen={openId===t.id} onToggle={() => handleToggle(t.id)} autoShowAdd={showAddForId===t.id} onAutoShowAddDone={() => setShowAddForId(null)}/>)}
+
+                      {finished.map(t => <TournamentCard key={t.id} tournament={t} players={players} onReload={onReload} onDelete={id => setConfirmDelete(id)} isOpen={openId===t.id} onToggle={() => handleToggle(t.id)}/>)}
+                    </>
+                    </>
+                  )}
+                </>
+              );
+            })()}
+            {showNew && <NewTournamentModal onClose={() => setShowNew(false)} onSubmit={createTournament}/>}
+          </div>
+        );
+      }
+
+      function ComparePage({ players, matches }) {
+      const [p1id, setP1id] = useState("");
+      const [p2id, setP2id] = useState("");
+
+      const p1 = players.find(p => p.id === parseInt(p1id));
+      const p2 = players.find(p => p.id === parseInt(p2id));
+
+      // Only matches between these two players
+      const h2h = (p1 && p2) ? matches.filter(m =>
+        (m.p1 === p1.name && m.p2 === p2.name) ||
+        (m.p1 === p2.name && m.p2 === p1.name)
+      ) : [];
+
+      const total = h2h.length;
+      const p1wins = h2h.filter(m => m.winner === p1?.name).length;
+      const p2wins = h2h.filter(m => m.winner === p2?.name).length;
+      const p1wr = total ? Math.round(p1wins / total * 100) : null;
+      const p2wr = total ? Math.round(p2wins / total * 100) : null;
+      const bothSelected = !!(p1 && p2);
+      const WC = "#E8822A"; const WB = "#FEF3E8";
+
+      // H2H stat rows: only H2H-derived values
+      const statRows = [
+        {
+          label: "Побед", v1: p1wins, v2: p2wins,
+          fmt: v => total ? v : "—", better: (a, b) => a > b
+        },
+        {
+          label: "Winrate", v1: p1wr, v2: p2wr,
+          fmt: v => v !== null ? v + "%" : "—", better: (a, b) => a > b
+        },
+      ];
+
+      return (
+        <div>
+          {/* Selectors */}
+          <div style={{ ...card, marginBottom: 14 }}>
+            <div style={ch}><span style={{ fontSize: 15, fontWeight: 700 }}>Сравнение — личные встречи</span></div>
+            <div style={{ padding: "16px 20px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "flex-end" }}>
+                <div style={{ flex: "1 1 140px", minWidth: 0 }}><div style={labelSt}>Игрок 1</div><PlayerSelect value={p1id} onChange={id=>setP1id(id)} players={players.filter(p=>String(p.id)!==String(p2id))} placeholder="Выбрать..."/></div>
+                <div style={{ flexShrink: 0, textAlign:"center", fontSize:13, fontWeight:800, color:"#C8D0DA", paddingBottom:10, minWidth: 28 }}>VS</div>
+                <div style={{ flex: "1 1 140px", minWidth: 0 }}><div style={labelSt}>Игрок 2</div><PlayerSelect value={p2id} onChange={id=>setP2id(id)} players={players.filter(p=>String(p.id)!==String(p1id))} placeholder="Выбрать..."/></div>
+              </div>
+            </div>
+          </div>
+
+          {!bothSelected && (
+            <div style={{ textAlign: "center", padding: "72px 20px" }}>
+              <div style={{ fontSize: 52 }}>⚔️</div>
+              <div style={{ fontSize: 15, color: "#8C9BAB", marginTop: 12, lineHeight: 1.6 }}>
+                Выберите двух игроков<br />чтобы увидеть их личную статистику
+              </div>
+            </div>
+          )}
+
+          {bothSelected && (
+            <>
+              {/* VS header — shows names, ranks, overall rating as context */}
+              <div style={{ ...card, marginBottom: 14 }}>
+                <div style={{
+                  padding: "20px 16px", display: "grid",
+                  gridTemplateColumns: "1fr 40px 1fr", gap: 8, alignItems: "center"
+                }}>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+                    <Avatar name={p1.name} size={56} />
+                    <div style={{ textAlign: "center" }}>
+                      <div style={{ fontWeight: 700, fontSize: 15 }}>{p1.name}</div>
+                      <div style={{ marginTop: 3 }}><RankPill rating={p1.rating} /></div>
+                      <div style={{ fontSize: 11, color: "#8C9BAB", marginTop: 4 }}>{p1.rating} ELO</div>
+                    </div>
+                  </div>
+                  <div style={{ textAlign: "center", fontSize: 15, fontWeight: 800, color: "#C8D0DA" }}>VS</div>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+                    <Avatar name={p2.name} size={56} />
+                    <div style={{ textAlign: "center" }}>
+                      <div style={{ fontWeight: 700, fontSize: 15 }}>{p2.name}</div>
+                      <div style={{ marginTop: 3 }}><RankPill rating={p2.rating} /></div>
+                      <div style={{ fontSize: 11, color: "#8C9BAB", marginTop: 4 }}>{p2.rating} ELO</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* H2H stats — wins & WR only between these two */}
+              <div style={{ ...card, marginBottom: 14 }}>
+                <div style={ch}>
+                  <span style={{ fontSize: 15, fontWeight: 700 }}>Личная статистика</span>
+                  <span style={{ fontSize: 13, color: "#8C9BAB" }}>
+                    {total} {total === 1 ? "матч" : total >= 2 && total <= 4 ? "матча" : "матчей"} между ними
+                  </span>
+                </div>
+
+                {total === 0 ? (
+                  <div style={{ padding: "28px 20px", textAlign: "center" }}>
+                    <div style={{ fontSize: 28 }}>🤝</div>
+                    <div style={{ fontSize: 14, color: "#8C9BAB", marginTop: 8 }}>
+                      Эти игроки ещё не встречались — побед, поражений и винрейта нет
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    {/* Big score */}
+                    <div style={{
+                      display: "grid", gridTemplateColumns: "1fr 40px 1fr",
+                      alignItems: "center", padding: "20px 20px 0"
+                    }}>
+                      <div style={{ textAlign: "center" }}>
+                        <div style={{
+                          fontSize: 52, fontWeight: 900, lineHeight: 1,
+                          color: p1wins > p2wins ? WC : "#1A1A1A"
+                        }}>{p1wins}</div>
+                        <div style={{ fontSize: 11, color: "#8C9BAB", marginTop: 4 }}>{p1.name.split(" ")[0]}</div>
+                      </div>
+                      <div style={{ textAlign: "center", fontSize: 20, fontWeight: 800, color: "#E8EAEC" }}>:</div>
+                      <div style={{ textAlign: "center" }}>
+                        <div style={{
+                          fontSize: 52, fontWeight: 900, lineHeight: 1,
+                          color: p2wins > p1wins ? WC : "#1A1A1A"
+                        }}>{p2wins}</div>
+                        <div style={{ fontSize: 11, color: "#8C9BAB", marginTop: 4 }}>{p2.name.split(" ")[0]}</div>
+                      </div>
+                    </div>
+                    {/* Progress bar */}
+                    <div style={{ padding: "16px 20px 0" }}>
+                      <div style={{ height: 8, background: "#F0F0F0", borderRadius: 4, overflow: "hidden" }}>
+                        <div style={{
+                          height: "100%", borderRadius: 4, background: WC,
+                          width: (p1wins / total * 100) + "%", transition: "width .4s ease"
+                        }} />
+                      </div>
+                      <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
+                        <span style={{ fontSize: 11, color: "#8C9BAB" }}>{p1.name.split(" ")[0]}: {p1wr}%</span>
+                        <span style={{ fontSize: 11, color: "#8C9BAB" }}>{p2.name.split(" ")[0]}: {p2wr}%</span>
+                      </div>
+                    </div>
+                    {/* Stat rows */}
+                    <div style={{ padding: "8px 0 0" }}>
+                      {statRows.map(s => {
+                        const w = total === 0 ? 0 : s.better(s.v1, s.v2) ? 1 : s.better(s.v2, s.v1) ? -1 : 0;
+                        return (
+                          <div key={s.label} style={{
+                            display: "grid", gridTemplateColumns: "1fr auto 1fr",
+                            padding: "11px 16px", borderTop: "1px solid #F5F5F5", alignItems: "center"
+                          }}>
+                            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                              <span style={{
+                                fontSize: 18, fontWeight: 800, padding: "5px 14px", borderRadius: 10,
+                                background: w === 1 ? WB : "transparent", color: w === 1 ? WC : "#1A1A1A"
+                              }}>
+                                {s.fmt(s.v1)}
+                              </span>
+                            </div>
+                            <div style={{
+                              fontSize: 10, fontWeight: 700, color: "#8C9BAB", textTransform: "uppercase",
+                              textAlign: "center", padding: "0 12px", letterSpacing: .5
+                            }}>{s.label}</div>
+                            <div style={{ display: "flex", justifyContent: "flex-start" }}>
+                              <span style={{
+                                fontSize: 18, fontWeight: 800, padding: "5px 14px", borderRadius: 10,
+                                background: w === -1 ? WB : "transparent", color: w === -1 ? WC : "#1A1A1A"
+                              }}>
+                                {s.fmt(s.v2)}
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* H2H match history — same style as "Последние матчи" */}
+              {total > 0 && (
+                <div style={card}>
+                  <div style={ch}>
+                    <span style={{ fontSize: 15, fontWeight: 700 }}>История встреч</span>
+                    <span style={{ fontSize: 13, color: "#8C9BAB" }}>{total}</span>
+                  </div>
+                  {h2h.map(raw => {
+                    const m = normalizeMatch(raw);
+                    return (
+                      <div key={m.id} style={{padding:"14px 20px",borderBottom:"1px solid #E8EAEC"}}>
+                        <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+                          <div style={{flex:1}}><TeamCell name={m.p1} name2={m.p1b} isWinner={m.winner===m.p1} size={24} ratings={{}}/></div>
+                          <span style={{padding:"4px 12px",background:"#F5F5F5",borderRadius:20,fontWeight:800,fontSize:15,flexShrink:0}}>{m.s1}:{m.s2}</span>
+                          <div style={{flex:1,display:"flex",justifyContent:"flex-end"}}><TeamCell name={m.p2} name2={m.p2b} isWinner={m.winner===m.p2} align="right" size={24} ratings={{}}/></div>
+                        </div>
+                        <div style={{display:"flex",alignItems:"center",gap:6}}>
+                          <DeltaBadge d={m.d1}/>
+                          <span style={{flex:1,textAlign:"center",fontSize:11,color:"#8C9BAB"}}>{m.date} · {m.time}</span>
+                          <DeltaBadge d={m.d2} right/>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      );
+    }
+
+
+    function Empty({ text }) {
+      return (
+        <div style={{ textAlign: "center", padding: "72px 20px" }}>
+          <div style={{ fontSize: 52 }}>🏓</div>
+          <div style={{ fontSize: 15, color: "#8C9BAB", marginTop: 12, lineHeight: 1.5 }}>{text}</div>
+        </div>
+      );
+    }
+
+    // ── App ────────────────────────────────────────────────────────────────────
+    function App() {
+      const [players, setPlayers] = useState([]);
+      const [tournaments, setTournaments] = useState([]);
+      const [matches, setMatches] = useState([]);
+      const [view, setView] = useState("leaderboard");
+      const [showMatch, setShowMatch] = useState(false);
+      const [showPlayer, setShowPlayer] = useState(false);
+      const [toast, setToast] = useState(null);
+      const [loading, setLoading] = useState(true);
+      const [offline, setOffline] = useState(false);
+      const [savedP1, setSavedP1] = useState("");
+      const [savedP2, setSavedP2] = useState("");
+
+      async function loadAll() {
+        try {
+          const [p, m] = await Promise.all([
+            apiFetch("/api/players"),
+            apiFetch("/api/matches"),
+          ]);
+          setPlayers(p); setMatches(m); setOffline(false); _setAvatarCache(p);
+          // Загружаем турниры отдельно — чтобы ошибка не блокировала весь интерфейс
+          apiFetch("/api/tournaments").then(t => setTournaments(t)).catch(() => {});
+        } catch {
+          setOffline(true);
+        } finally {
+          setLoading(false);
+        }
+      }
+
+      useEffect(() => { loadAll(); }, []);
+
+      // Обновляем данные каждые 15 секунд (для синхронизации между устройствами)
+      useEffect(() => {
+        const t = setInterval(loadAll, 15000);
+        return () => clearInterval(t);
+      }, []);
+
+      function showMsg(msg) {
+        setToast(msg);
+        setTimeout(() => setToast(null), 2800);
+      }
+
+      async function addPlayer(name) {
+        const p = await apiFetch("/api/players", {
+          method: "POST", body: JSON.stringify({ name }),
+        });
+        setPlayers(prev => [...prev, p].sort((a, b) => b.rating - a.rating));
+        showMsg(`${name} добавлен!`);
+      }
+
+      async function addMatch(data) {
+        await apiFetch("/api/matches", { method: "POST", body: JSON.stringify(data) });
+        await loadAll();
+        showMsg(`🏓 Матч записан!`);
+      }
+
+      async function deleteMatch(id) {
+        await apiFetch(`/api/matches/${id}`, { method: "DELETE" });
+        await loadAll();
+        showMsg("Матч удалён, рейтинг откатан");
+      }
+
+      async function editMatch(id, data) {
+        await apiFetch(`/api/matches/${id}`, { method: "PUT", body: JSON.stringify(data) });
+        await loadAll();
+        showMsg("Матч обновлён!");
+      }
+
+      async function deletePlayer(id) {
+        const pl = players.find(p => p.id === id);
+        await apiFetch(`/api/players/${id}`, { method: "DELETE" });
+        await loadAll();
+        showMsg(`${pl?.name} удалён`);
+      }
+
+      const NAV = [
+        { id: "leaderboard", label: "Рейтинг", icon: "🏆" },
+        { id: "history", label: "Матчи", icon: "📋" },
+        { id: "tournament", label: "Турниры", icon: "🥊" },
+        { id: "players", label: "Игроки", icon: "👤" },
+        { id: "compare", label: "Сравнение", icon: "⚔️" },
+      ];
+
+      return (
+        <div style={{ minHeight: "100vh", background: "#F2F3F5" }}>
+
+          {offline && (
+            <div className="offline-bar">
+              ⚠ Нет соединения с сервером — данные могут быть устаревшими
+            </div>
+          )}
+
+          {/* Header */}
+          <header style={{
+            background: "#fff", borderBottom: "1px solid #E8EAEC",
+            position: "sticky", top: 0, zIndex: 100
+          }}>
+            <div style={{
+              maxWidth: 1100, margin: "0 auto", padding: "0 16px",
+              display: "flex", alignItems: "center", gap: 16, height: 56
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+                <span style={{ fontSize: 24 }}>🏓</span>
+                <div>
+                  <div style={{ fontSize: 16, fontWeight: 800, letterSpacing: -0.3 }}>SotoPong</div>
+                  <div className="hide-mob" style={{ fontSize: 11, color: "#8C9BAB" }}>Рейтинг пинг-понга</div>
+                </div>
+              </div>
+
+              <nav className="desk" style={{ gap: 2 }}>
+                {NAV.map(n => (
+                  <button key={n.id} onClick={() => setView(n.id)}
+                    style={{
+                      padding: "6px 14px", borderRadius: 8, border: "none",
+                      background: view === n.id ? "#FEF3E8" : "transparent",
+                      color: view === n.id ? "#E8822A" : "#8C9BAB",
+                      fontWeight: view === n.id ? 600 : 500,
+                      cursor: "pointer", fontSize: 14, transition: "all .15s"
+                    }}>
+                    {n.label}
+                  </button>
+                ))}
+              </nav>
+
+              <div style={{ flex: 1 }} />
+
+              <button className="desk" onClick={() => setShowMatch(true)}
+                style={{
+                  gap: 8, padding: "8px 16px", borderRadius: 8,
+                  background: "#E8822A", color: "#fff", border: "none",
+                  fontWeight: 700, fontSize: 14, cursor: "pointer",
+                  whiteSpace: "nowrap", flexShrink: 0
+                }}>
+                Новый матч +
+              </button>
+              <button className="mob" onClick={() => setShowMatch(true)}
+                style={{
+                  width: 38, height: 38, borderRadius: 8, flexShrink: 0,
+                  background: "#E8822A", color: "#fff", border: "none",
+                  fontWeight: 700, fontSize: 22, cursor: "pointer",
+                  display: "none", alignItems: "center", justifyContent: "center", lineHeight: 1,
+                  paddingBottom: 2
+                }}>
+                +
+              </button>
+            </div>
+          </header>
+
+          {/* Main */}
+          <main style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 16px 90px" }}>
+            {loading ? <Spinner /> : (
+              <>
+                {view === "leaderboard" && <Leaderboard players={players} matches={matches} tournaments={tournaments} />}
+                {view === "history" && <History matches={matches} players={players} onDelete={deleteMatch} onEdit={editMatch} />}
+                {view === "players" && <PlayersPage players={players} onAdd={addPlayer} onDelete={deletePlayer} onOpenAdd={() => setShowPlayer(true)} onAvatarUpdate={loadAll} />}
+                {view === "compare" && <ComparePage players={players} matches={matches} />}
+                {view === "tournament" && <TournamentPage tournaments={tournaments} players={players} onReload={loadAll} />}
+              </>
+            )}
+          </main>
+
+          {/* Mobile tab bar */}
+          <nav className="mob" style={{
+            position: "fixed", bottom: 0, left: 0, right: 0,
+            background: "#fff", borderTop: "1px solid #E8EAEC",
+            zIndex: 90, paddingBottom: "env(safe-area-inset-bottom)"
+          }}>
+            {NAV.map(n => (
+              <button key={n.id} onClick={() => setView(n.id)}
+                style={{
+                  flex: 1, display: "flex", flexDirection: "column", alignItems: "center",
+                  justifyContent: "center", padding: "8px 0", background: "none", border: "none",
+                  color: view === n.id ? "#E8822A" : "#8C9BAB", cursor: "pointer", fontSize: 10, gap: 2
+                }}>
+                <span style={{ fontSize: 18 }}>{n.icon}</span>
+                {n.label}
+              </button>
+            ))}
+          </nav>
+
+          {showMatch && (
+            <NewMatchModal players={players} onClose={() => setShowMatch(false)} onSubmit={addMatch}
+              savedP1={savedP1} savedP2={savedP2}
+              onSavePlayers={(p1, p2) => { setSavedP1(p1); setSavedP2(p2); }} />
+          )}
+
+          {showPlayer && (
+            <NewPlayerModal onClose={() => setShowPlayer(false)} onSubmit={addPlayer} />
+          )}
+
+          {toast && (
+            <div className="toast"
+              style={{
+                position: "fixed", bottom: 88, left: "50%", transform: "translateX(-50%)",
+                background: "#1A1A1A", color: "#fff", padding: "11px 22px",
+                borderRadius: 10, fontWeight: 600, fontSize: 14, zIndex: 999,
+                boxShadow: "0 8px 24px rgba(0,0,0,.18)", whiteSpace: "nowrap"
+              }}>
+              {toast}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+
+</html>
